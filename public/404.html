@@ -7,7 +7,11 @@
     <script>
         // Redirect to index.html and preserve the path
         sessionStorage.redirect = location.pathname;
-        location.replace('resume-Movie-Dicussion-site '); // Replace with your repo name
+        location.replace(
+            '/' +  // Base path for your app (root in your case)
+            location.search +  // Preserve query parameters
+            location.hash  // Preserve hash fragments
+        ); 
     </script>
 </head>
 
