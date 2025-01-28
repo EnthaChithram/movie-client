@@ -10,20 +10,28 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="navbar">
+      <div className="  navbar flex justify-center p-8 items-center ">
         <h1>
-          <Link to="/movies"> MOVIES </Link>
+          <Link className="navtext text-4xl" to="/movies">
+            MOVIES
+          </Link>
         </h1>
         {user && (
           <h1>
-            <Link to="/mycomments"> my comments </Link>
+            <Link className="navtext" to="/mycomments">
+              my comments
+            </Link>
           </h1>
         )}
 
         {!user && (
           <div>
-            <Link to="/signup"> SIGN UP </Link>
-            <Link to="/login"> LOGIN </Link>
+            <Link className="navtext" to="/signup">
+              SIGN UP
+            </Link>
+            <Link className="navtext" to="/login">
+              LOGIN
+            </Link>
           </div>
         )}
 

@@ -3,11 +3,17 @@ import useFetch from "./hooks/useFetch";
 import { Link } from "react-router-dom";
 
 const Movies = () => {
-  const { Data: movies } = useFetch(import.meta.env.VITE_API_URL + "movies");
+  const { Data: movies, loading } = useFetch(
+    import.meta.env.VITE_API_URL + "movies"
+  );
+
+  if (loading) {
+    return <div>Server is cold starting....</div>;
+  }
 
   return (
     <div>
-      <h2>movie list:</h2>
+      <h2 className="text-red-500">movie list:</h2>
       {movies.map((movie) => (
         <div key={movie._id}>
           <Link to={"/movies/" + movie._id}>

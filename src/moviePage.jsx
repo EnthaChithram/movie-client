@@ -48,7 +48,7 @@ const Moviepage = () => {
           <h1>LOADING...</h1>
         ) : movie ? (
           <>
-            <h1>{movie.name}</h1>
+            <h1 className="text-red text-9xl">{movie.name}</h1>
             <h4>{movie.year}</h4>
           </>
         ) : (

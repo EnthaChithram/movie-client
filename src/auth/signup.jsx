@@ -16,7 +16,7 @@ const Signup = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form className="text-red" onSubmit={handleSubmit}>
         <label>username</label>
         <input
           type="text"
