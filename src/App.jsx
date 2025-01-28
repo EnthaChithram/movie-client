@@ -21,9 +21,26 @@ import Login from "./auth/login";
 import { AuthContext } from "./context/AuthContext";
 import { MyComments } from "./mycomments";
 import { Loading } from "./loading";
+import { LoadingContext } from "./context/loadingContext";
+import useFetch from "./hooks/useFetch";
 
 function App() {
   const { user, loading } = useContext(AuthContext);
+  const { isloading } = useContext(LoadingContext);
+
+  const { loading: serverloading } = useFetch(
+    import.meta.env.VITE_API_URL + "movies/"
+  );
+
+  if (serverloading) {
+    return (
+      <>
+        <div className="please">SERVER COLD-START</div>
+        <div className="server">PLEASE WAIT FOR 20 SECONDS</div>
+      </>
+    );
+  }
+
   return (
     <div>
       <Router>

@@ -25,7 +25,7 @@ const useFetch = (url) => {
         })
         .catch((err) => {
           // auto catches network / connection error
-          SetLoading(false);
+          // SetLoading(false);
           setError(err.message);
         });
     }, 0);

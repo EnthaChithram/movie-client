@@ -7,17 +7,20 @@ import { CommentsContextProvider } from "./context/commentscontext";
 import { Colorcontextprovider } from "./context/colorcontext";
 import { ListContextProvider } from "./context/listcontext";
 import { AuthContextProvider } from "./context/AuthContext";
+import { LoadingContextProvider } from "./context/loadingContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <CommentsContextProvider>
-      <Colorcontextprovider>
-        <ListContextProvider>
-          <AuthContextProvider>
-            <App />
-          </AuthContextProvider>
-        </ListContextProvider>
-      </Colorcontextprovider>
-    </CommentsContextProvider>
+    <LoadingContextProvider>
+      <CommentsContextProvider>
+        <Colorcontextprovider>
+          <ListContextProvider>
+            <AuthContextProvider>
+              <App />
+            </AuthContextProvider>
+          </ListContextProvider>
+        </Colorcontextprovider>
+      </CommentsContextProvider>
+    </LoadingContextProvider>
   </React.StrictMode>
 );
