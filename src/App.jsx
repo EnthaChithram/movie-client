@@ -34,10 +34,10 @@ function App() {
 
   if (serverloading) {
     return (
-      <>
+      <div>
         <div className="please">SERVER COLD-START</div>
         <div className="server">PLEASE WAIT FOR 20 SECONDS</div>
-      </>
+      </div>
     );
   }
 

@@ -17,22 +17,28 @@ const Reply = ({ movie, comment }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (user) {
+      const newComment = { text, parentid, movieid };
 
-    const newComment = { text, parentid, movieid };
+      const response = await fetch(import.meta.env.VITE_API_URL + "newcommentu", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ` + user.token,
+        },
+        body: JSON.stringify(newComment),
+      });
 
-    const response = await fetch(import.meta.env.VITE_API_URL + "newcommentu", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ` + user.token,
-      },
-      body: JSON.stringify(newComment),
-    });
+      const json = await response.json();
+      dispatch({ type: "reply_off" });
+      dispatch({ type: "create_comment", payload: json });
+    }
+    else {
+      navigate("/signup")
+    }
+  }
 
-    const json = await response.json();
-    dispatch({ type: "reply_off" });
-    dispatch({ type: "create_comment", payload: json });
-  };
+
 
   const neww = (e) => {
     console.log("butoone");

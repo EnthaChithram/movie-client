@@ -110,9 +110,9 @@ const Commentsection = ({ movie, selected }) => {
     >
       <div>-----</div>
       <br></br>
-      <div>
-        <Newcomment movie={movie} />
-      </div>
+
+      <Newcomment movie={movie} />
+
       <div>
         <h2>Comments</h2>
         {comments && comments.length > 0 ? (

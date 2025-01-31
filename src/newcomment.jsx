@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { useCommentsContext } from "./hooks/useCommentsContext";
 import { AuthContext } from "./context/AuthContext";
 
@@ -38,12 +38,10 @@ const Newcomment = ({ movie }) => {
       const json = await response.json();
 
       dispatch({ type: "create_comment", payload: json });
-      //error
-
       console.log(json);
       //   window.location.reload();
     } else {
-      window.alert("please sign in first");
+      navigate("/signup");
     }
   };
 
@@ -53,24 +51,25 @@ const Newcomment = ({ movie }) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <fieldset>
-          <textarea
-            type="text"
-            placeholder="Add a comment"
-            id="text"
-            name="text"
-            required
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-          ></textarea>
+      <form className="flex flex-col space-y-2 " onSubmit={handleSubmit}>
 
-          <input type="hidden" name="parentid" value={parentid}></input>
+        <textarea className="h-[50px] w-full focus:outline-none border-1 rounded-3xl p-3 border-[#413e56] focus:border-white"
+          type="text"
+          placeholder="Add a comment"
+          id="text"
+          name="text"
+          required
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+        ></textarea>
 
-          <input type="hidden" name="movieid" value={movieid}></input>
+        <input type="hidden" name="parentid" value={parentid}></input>
 
-          <button type="submit">submit</button>
-        </fieldset>
+        <input type="hidden" name="movieid" value={movieid}></input>
+
+        <button className=" text-white w-24 p-2 rounded-md self-end cursor-pointer"
+          type="submit">Comment</button>
+
       </form>
     </>
   );

@@ -18,29 +18,31 @@ const Login = () => {
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <label>username</label>
-        <input
+    <div className="formdiv">
+      <form className="authform" onSubmit={handleSubmit}> LOGIN
+        <label className="authlabel">Username</label>
+        <input className="authinput"
           type="text"
           id="username"
+
           name="username"
           required
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
 
-        <label>password</label>
-        <input
+        <label className="authlabel">Password</label>
+        <input className="authinput"
           type="text"
           id="password"
           name="password"
+          autoComplete="off"
           required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         ></input>
 
-        <button type="submit">submit</button>
+        <button type="submit">Login</button>
       </form>
 
       {message && (
@@ -49,7 +51,7 @@ const Login = () => {
           <p style={{ color: "red" }}>{message.error} </p>
         </>
       )}
-    </>
+    </div>
   );
 };
 
