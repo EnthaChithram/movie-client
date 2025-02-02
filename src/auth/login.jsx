@@ -19,7 +19,7 @@ const Login = () => {
 
   return (
     <div className="formdiv">
-      <form className="authform" onSubmit={handleSubmit}> LOGIN
+      <form className="authform shadow-[0_5px_20px_rgba(0,0,0,0.8)]" onSubmit={handleSubmit}> LOGIN
         <label className="authlabel">Username</label>
         <input className="authinput"
           type="text"
@@ -42,8 +42,10 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
         ></input>
 
-        <button type="submit">Login</button>
+        <button className="shadow-[0_5px_20px_rgba(0,0,0,0.8)] rounded-md" type="submit">Login</button>
       </form>
+
+
 
       {message && (
         <>

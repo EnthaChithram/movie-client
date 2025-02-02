@@ -16,7 +16,7 @@ const Signup = () => {
 
   return (
     <div className="formdiv  ">
-      <form className="authform" onSubmit={handleSubmit}> CREATE AN ACCOUNT
+      <form className="authform shadow-[0_5px_20px_rgba(0,0,0,0.8)]" onSubmit={handleSubmit}> CREATE AN ACCOUNT
         <label className="authlabel">Username</label>
         <input
           className="authinput"
@@ -42,7 +42,7 @@ const Signup = () => {
           onChange={(e) => setPassword(e.target.value)}
         ></input>
 
-        <button type="submit">Sign Up</button>
+        <button type="submit" className="shadow-[0_5px_20px_rgba(0,0,0,0.8)] rounded-md transition duration-500">Sign Up</button>
       </form>
       {message && (
         <>

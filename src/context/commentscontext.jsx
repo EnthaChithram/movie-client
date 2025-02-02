@@ -28,10 +28,10 @@ export const commentsReducer = (state, action) => {
         comments: state.comments.map((comment) =>
           comment._id === action.payload
             ? {
-                ...comment,
-                text: "[DELETED COMMENT]",
-                userid: { ...comment.userid, username: "[DELETED]" },
-              }
+              ...comment,
+              text: "[DELETED COMMENT]",
+              userid: { ...comment.userid, username: "[DELETED]" },
+            }
             : comment
         ),
       };
@@ -48,6 +48,12 @@ export const commentsReducer = (state, action) => {
         isReplying: false,
       };
 
+    case "updatecc":
+      return {
+        ...state,
+        cc: action.payload
+      }
+
     default:
       return state;
   }
@@ -57,6 +63,7 @@ export const CommentsContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(commentsReducer, {
     comments: [],
     isReplying: false,
+    cc: null
   });
 
   return (

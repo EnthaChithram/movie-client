@@ -13,8 +13,9 @@ const Newcomment = ({ movie }) => {
   const [name, setName] = useState("");
   const [text, setText] = useState("");
   const [parentid, setParentid] = useState("");
-  const [movieid, setMovieid] = useState(movie._id);
+  const [movieid, setMovieid] = useState(movie.id);
   const [year, setYear] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,6 +23,7 @@ const Newcomment = ({ movie }) => {
     const newComment = { text, parentid, movieid };
 
     if (user) {
+      setLoading(true)
       const response = await fetch(
         import.meta.env.VITE_API_URL + "newcommentu",
         {
@@ -38,6 +40,7 @@ const Newcomment = ({ movie }) => {
       const json = await response.json();
 
       dispatch({ type: "create_comment", payload: json });
+      setLoading(false)
       console.log(json);
       //   window.location.reload();
     } else {
@@ -53,7 +56,7 @@ const Newcomment = ({ movie }) => {
     <>
       <form className="flex flex-col space-y-2 " onSubmit={handleSubmit}>
 
-        <textarea className="h-[50px] w-full focus:outline-none border-1 rounded-3xl p-3 border-[#413e56] focus:border-white"
+        <textarea className=" overflow-hidden resize-none h-[50px] w-full focus:outline-none border-1 rounded-3xl p-3 border-[#413e56] focus:border-white"
           type="text"
           placeholder="Add a comment"
           id="text"
@@ -68,7 +71,7 @@ const Newcomment = ({ movie }) => {
         <input type="hidden" name="movieid" value={movieid}></input>
 
         <button className=" text-white w-24 p-2 rounded-md self-end cursor-pointer"
-          type="submit">Comment</button>
+          type="submit">{loading ? "posting.." : "Comment"}</button>
 
       </form>
     </>

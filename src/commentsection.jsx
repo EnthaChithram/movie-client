@@ -8,21 +8,21 @@ import { formatDistanceToNow } from "date-fns";
 import { AuthContext } from "./context/AuthContext";
 
 const Commentsection = ({ movie, selected }) => {
-  const { comments, dispatch, isReplying } = useCommentsContext();
+  const { cc, comments, dispatch, isReplying } = useCommentsContext();
 
-  const [cc, setcc] = useState(null);
+  // const [cc, setcc] = useState(null);
   const [view, setView] = useState(true);
   const [reply, setReply] = useState(true);
   const { user } = useContext(AuthContext);
 
-  const handleReply = (id) => {
-    if (cc === id) {
-      dispatch({ type: isReplying ? "reply_off" : "reply_on" });
-    } else {
-      setcc(id);
-      dispatch({ type: "reply_on" });
-    }
-  };
+  // const handleReply = (id) => {
+  //   if (cc === id) {
+  //     dispatch({ type: isReplying ? "reply_off" : "reply_on" });
+  //   } else {
+  //     setcc(id);
+  //     dispatch({ type: "reply_on" });
+  //   }
+  // };
 
   const handleDelete = async (id, childrenlength) => {
     if (childrenlength === 0) {
@@ -43,28 +43,31 @@ const Commentsection = ({ movie, selected }) => {
 
     const json = await response.json();
   };
-
+  console.log(comments)
   const renderComments = (comments) => {
     return comments.map((comment) => (
-      <div
+      <div className={' flex flex-col'}
         key={comment._id}
         style={{
-          marginLeft: comment.parentid === null ? "10px" : "30px",
-          color: comment._id === selected ? "black" : "#be0f84",
+          marginLeft: comment.parentid === null ? "10px" : "35px", marginTop: "10px", marginBottom: comment.parentid === null ? "20px" : null, transition: "0.5s"
+
         }}
       >
-        <p>
-          <strong>
+        {console.log(cc)}
+        <div className="flex w-full items-center " style={{
+          marginBottom: "10px", transition: "1s"
+        }}>
+          <strong className="transition-all duration-1000 shadow-[0_2px_10px_rgba(0,0,0,0.8),0_-0.5px_10px_rgba(0,0,0,0.8)] rounded-md pl-1 pr-1">
             @{comment.userid ? comment.userid?.username : "[deleted]"}
           </strong>{" "}
-          <i style={{ fontSize: "12px" }}>
+          <i className="self-end pl-1 pr-1" style={{ fontSize: "12px" }}>
             {" "}
             {formatDistanceToNow(new Date(comment.createdAt), {
               addSuffix: true,
             })}
-          </i>
+          </i>{" "}
           {user && comment.userid && comment.userid._id === user.userid ? (
-            <button
+            <button className="shadow-[0_2px_5px_rgba(0,0,0,0.8),0_-0.5px_5px_rgba(0,0,0,0.8)] transition-transform duration-300 hover:translate-y-[-3px] hover:shadow-[0_2px_20px_rgba(0,0,0,0.8)] rounded-md cursor-pointer pl-1 pr-1 ml-auto"
               onClick={() => {
                 handleDelete(comment._id, comment.children.length);
               }}
@@ -72,24 +75,17 @@ const Commentsection = ({ movie, selected }) => {
               delete
             </button>
           ) : null}
-        </p>
-
-        <div>
-          {comment.text}
-          {/* <i style={{ color: "red" }}>({comment._id})</i> */}
         </div>
-        {cc === comment._id && isReplying ? (
-          <Reply movie={movie} comment={comment} />
-        ) : null}
-        <button
-          onClick={() => {
-            handleReply(comment._id);
-          }}
-        >
-          {cc === comment._id && isReplying ? "cancel" : "REPLY"}
-        </button>
 
-        <br></br>
+        <div className="shadow-[0_5px_20px_rgba(0,0,0,0.8),0_-0.5px_20px_rgba(0,0,0,0.8)] rounded-md pl-4 pt-2 pb-2 " >
+          {comment.text}
+
+        </div>
+
+        <div style={{ height: cc === comment._id ? "50px" : "30px", transition: "0.5s", marginBottom: cc === comment._id ? "60px" : "0" }}>
+          <Reply movie={movie} comment={comment} />
+        </div>
+
         {/* children loop*/}
         {/* {console.log(comment.parentid)} */}
         {comment.children && comment.children.length > 0 && (
@@ -104,8 +100,9 @@ const Commentsection = ({ movie, selected }) => {
       style={{
         maxWidth: "750px",
         margin: "30px 270px",
-        border: "solid black 1px",
+
         padding: "5px",
+
       }}
     >
       <div>-----</div>
@@ -114,7 +111,7 @@ const Commentsection = ({ movie, selected }) => {
       <Newcomment movie={movie} />
 
       <div>
-        <h2>Comments</h2>
+        <h1 className=" transition-all duration-1000 font-extrabold text-pink-500">Comments:</h1>
         {comments && comments.length > 0 ? (
           renderComments(Nestedversion(comments))
         ) : (

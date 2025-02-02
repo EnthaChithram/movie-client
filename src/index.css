@@ -21,15 +21,15 @@ html {
   overflow-y: scroll;
 }
 
-/* input {
-  padding: 10px;
-  margin-top: 40px;
-  margin-bottom: 20px;
-  width: 100%;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  box-sizing: border-box;
-} */
+.reply {
+  transition: 3s;
+  transition-delay: 0.5s;
+
+}
+
+
+
+
 
 .authform button {
   background: #1d232a;
@@ -38,7 +38,7 @@ html {
   padding: 5px;
   /* font-family: "Poppins"; */
 
-  border-radius: 4px;
+
   cursor: pointer
 }
 
@@ -51,7 +51,7 @@ html {
 }
 
 .authform {
-  @apply bg-[#445566] w-[350px] block p-5 text-[#95a5b6] rounded-md
+  @apply bg-[#1d232a] w-[350px] block p-5 text-[#95a5b6] rounded-xl flex flex-col
 }
 
 .authinput {
@@ -59,20 +59,20 @@ html {
 }
 
 .navtext {
-  @apply text-orange-400 pl-5 pr-5 m-10 hover:text-white;
+  @apply text-orange-400 pl-5 pr-5 m-10 rounded-xl;
 }
 
 .navtext {
   transition: 0.5s;
-  border-radius: 50px;
+  /* border-radius: 50px; */
   /* border: 1px solid #f6ad55; */
 }
 
-.navtext:hover {
+/* .navtext:hover {
   color: black;
   background-color: #f6ad55;
   box-shadow: 0px 1px 400px 50px #f6ad55;
-}
+} */
 
 .movieinfo {
   font-family: "Bebas Neue";
@@ -94,9 +94,7 @@ html {
 
   overflow: visible;
 } */
-.navbar h1 {
-  color: black;
-}
+
 
 .navbar .links {
   margin-left: auto;
@@ -144,7 +142,7 @@ html {
   font-family: "Bebas Neue";
   font-size: 500%;
   font-weight: 400;
-  animation-delay: 1s;
+  animation-delay: 1.5s;
 
 
 }

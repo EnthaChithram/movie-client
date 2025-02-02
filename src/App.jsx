@@ -23,6 +23,7 @@ import { MyComments } from "./mycomments";
 import { Loading } from "./loading";
 import { LoadingContext } from "./context/loadingContext";
 import useFetch from "./hooks/useFetch";
+import MovieCard from "./tmdbmovie";
 
 function App() {
   const { user, loading } = useContext(AuthContext);
@@ -51,6 +52,7 @@ function App() {
           <Route path="/movies" element={<Movies />}></Route>
           <Route path="/movies/:id" element={<Moviepage />}></Route>
           <Route path="/comments/:id" element={<Selectedcomment />}></Route>
+          <Route path="/tmdb" element={<MovieCard />}></Route>
 
           <Route
             path="/signup"

@@ -4,11 +4,13 @@ import { useParams, useLocation } from "react-router-dom";
 
 import Commentsection from "./commentsection";
 import { useCommentsContext } from "./hooks/useCommentsContext";
+import movies from "./manualData";
 
 const Moviepage = () => {
   const { id } = useParams();
+  const movie = movies.find((m) => m.id === id)
   const location = useLocation();
-  const [movie, setMovie] = useState(null);
+  // const [movie, setMovie] = useState(null);
   // const [comments, setComments] = useState(null)
 
   const { comments, dispatch } = useCommentsContext();
@@ -17,25 +19,26 @@ const Moviepage = () => {
     import.meta.env.VITE_API_URL + "movies/" + id
   );
 
-  // const { movie, comments = [] } = Data || {}
+
 
   useEffect(() => {
     if (Data) {
-      const { movie, comments = [] } = Data;
-      setMovie(movie);
-      // const tasks = ["do this", "do that"]
-      dispatch({ type: "set_comments", payload: comments });
-      // dispatch({ type: "set_tasks", payload: tasks })
-      // console.log(tasks)
-    }
-  }, [Data]);
+      const comments = Data;
 
-  if (loading) {
-    return <div> loading...</div>;
-  }
+
+      dispatch({ type: "set_comments", payload: comments });
+
+    }
+  }, [Data])
+
+
+
+
+
 
   return (
     <>
+      {/* {movie && movie.vposter && <img src={movie.hposter} width="100%" height="300px" />} */}
       <div
         className="moviepage"
         style={{
@@ -44,21 +47,17 @@ const Moviepage = () => {
           textAlign: "center",
         }}
       >
-        {loading ? (
-          <h1>LOADING...</h1>
-        ) : movie ? (
-          <>
-            <h1 className="text-red text-9xl">{movie.name}</h1>
-            <h4>{movie.year}</h4>
-          </>
-        ) : (
-          <h1>NOT FOUND</h1>
-        )}
+
+        <h1 className="text-red text-9xl">{movie.name}</h1>
+        <h4>{movie.year}</h4>
+
+
+
       </div>
 
       {comments && movie && (
         <Commentsection
-          comments={comments}
+
           movie={movie}
           selected="678ab7100ffa713184930be2"
         />
@@ -66,5 +65,6 @@ const Moviepage = () => {
     </>
   );
 };
+
 
 export default Moviepage;
