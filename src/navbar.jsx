@@ -10,7 +10,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className=" navbar flex justify-center p-8 items-center ">
+      <div className=" navbar flex justify-center p-8 items-center -mt-2">
         <h1>
           <Link className="navtext text-4xl hover:shadow-[0_5px_20px_rgba(0,0,0,0.8)]" to="/movies">
             MOVIES
@@ -26,7 +26,7 @@ const Navbar = () => {
 
         {!user && (
           <div className=" ">
-            <Link className="navtext self-end hover:shadow-[0_5px_20px_rgba(0,0,0,0.8)] ml-auto" to="/signup">
+            <Link className="navtext self-end hover:shadow-[0_5px_20px_rgba(0,0,0,0.8)] " to="/signup">
               SIGN UP
             </Link>
             <Link className="navtext self-end hover:shadow-[0_5px_20px_rgba(0,0,0,0.8)]" to="/login">

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-import { useCommentsContext } from "./hooks/useCommentsContext";
-import { AuthContext } from "./context/AuthContext";
+import { useCommentsContext } from "../hooks/useCommentsContext";
+import { AuthContext } from "../context/AuthContext";
 
 const Newcomment = ({ movie }) => {
   const { dispatch } = useCommentsContext();

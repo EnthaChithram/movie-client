@@ -1,7 +1,8 @@
 import { useParams } from "react-router-dom";
-import Commentsection from "./commentsection";
+
 import { useEffect, useState } from "react";
 import useFetch from "./hooks/useFetch";
+import Commentsection from "./CommentSection/commentsection";
 
 const Selectedcomment = () => {
   const { id } = useParams();

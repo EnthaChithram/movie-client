@@ -13,7 +13,7 @@ import Navbar from "./navbar";
 
 import Movies from "./movies";
 import Moviepage from "./moviePage";
-import Commentsection from "./commentsection";
+
 import Selectedcomment from "./selectedcomment";
 import Signup from "./auth/signup";
 import Users from "./auth/allusers";

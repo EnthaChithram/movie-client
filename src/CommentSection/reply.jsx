@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "./context/AuthContext";
-import { commentsContext } from "./context/commentscontext";
+import { AuthContext } from "../context/AuthContext";
+import { commentsContext } from "../context/commentscontext";
 
 const Reply = ({ movie, comment }) => {
   const navigate = useNavigate();
@@ -49,7 +49,7 @@ const Reply = ({ movie, comment }) => {
 
 
   const handleReply = (id) => {
-    console.log("clicked")
+
     if (cc === id) {
       dispatch({ type: isReplying ? "reply_off" : "reply_on" });
       dispatch({ type: "updatecc", payload: null })
@@ -63,15 +63,16 @@ const Reply = ({ movie, comment }) => {
 
   return (
     <div >
-      <div >
-        <i>likes{"  "}</i>
-        <button
+      <div className="flex ">
+        <div className="pl-2">[Likes]{"  "}</div>
+        <button className="cursor-pointer pl-2"
           onClick={() => {
             handleReply(comment._id);
           }}
         >
-          REPLY
-        </button></div>
+          Reply
+        </button>
+      </div>
       {cc === comment._id && isReplying ? (
         <form className="reply flex flex-col space-y-2 pl-[35px]"
           style={{ transition: "1s", }}
@@ -90,8 +91,8 @@ const Reply = ({ movie, comment }) => {
 
           <input type="hidden" name="movieid" value={movieid}></input>
           <div className="self-end space-x-1.5 flex ">
-            <button type="submit">{loading ? "replying.." : "reply"}</button>
-            <button className="cursor-pointer" type="button" onClick={() => {
+            <button className="cursor-pointer pr-2" type="submit">{loading ? "replying.." : "Reply"}</button>
+            <button className="cursor-pointer pl-1 pr-1" type="button" onClick={() => {
               handleReply(comment._id);
             }}>cancelll</button>
           </div>

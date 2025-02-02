@@ -27,7 +27,7 @@ const MoviePage = () => {
             })
     );
 
-    console.log(imdb);
+
 
     // Fetch Movie Data from OMDb API
     useEffect(() => {
@@ -39,10 +39,10 @@ const MoviePage = () => {
                 const data = await response.json();
 
                 if (data.Response === "True") {
-                    // setMovie({
-                    //     title: data.Title,
-                    //     poster: data.Poster,
-                    // });
+                    setMovie({
+                        title: data.Title,
+                        poster: data.Poster,
+                    });
                 } else {
                     setError("Movie not found");
                 }

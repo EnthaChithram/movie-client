@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import useFetch from "./hooks/useFetch";
 import { useParams, useLocation } from "react-router-dom";
 
-import Commentsection from "./commentsection";
+import Commentsection from "./CommentSection/commentsection";
 import { useCommentsContext } from "./hooks/useCommentsContext";
 import movies from "./manualData";
 
@@ -59,6 +59,7 @@ const Moviepage = () => {
         <Commentsection
 
           movie={movie}
+          loading={loading}
           selected="678ab7100ffa713184930be2"
         />
       )}

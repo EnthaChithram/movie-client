@@ -1,13 +1,13 @@
 import { useContext, useEffect, useState } from "react";
-import useFetch from "./hooks/useFetch";
-import Nestedversion from "./nestedversion";
+import useFetch from "../hooks/useFetch";
+import Nestedversion from "../nestedversion";
 import Newcomment from "./newcomment";
 import Reply from "./reply";
-import { useCommentsContext } from "./hooks/useCommentsContext";
+import { useCommentsContext } from "../hooks/useCommentsContext";
 import { formatDistanceToNow } from "date-fns";
-import { AuthContext } from "./context/AuthContext";
+import { AuthContext } from "../context/AuthContext";
 
-const Commentsection = ({ movie, selected }) => {
+const Commentsection = ({ movie, loading }) => {
   const { cc, comments, dispatch, isReplying } = useCommentsContext();
 
   // const [cc, setcc] = useState(null);
@@ -43,7 +43,7 @@ const Commentsection = ({ movie, selected }) => {
 
     const json = await response.json();
   };
-  console.log(comments)
+
   const renderComments = (comments) => {
     return comments.map((comment) => (
       <div className={' flex flex-col'}
@@ -53,11 +53,11 @@ const Commentsection = ({ movie, selected }) => {
 
         }}
       >
-        {console.log(cc)}
+
         <div className="flex w-full items-center " style={{
           marginBottom: "10px", transition: "1s"
         }}>
-          <strong className="transition-all duration-1000 shadow-[0_2px_10px_rgba(0,0,0,0.8),0_-0.5px_10px_rgba(0,0,0,0.8)] rounded-md pl-1 pr-1">
+          <strong className="transition-all duration-1000 shadow-[0_2px_10px_rgba(0,0,0,0.8),0_-0.5px_10px_rgba(0,0,0,0.8)] rounded-md pl-1 pr-1 pb-1">
             @{comment.userid ? comment.userid?.username : "[deleted]"}
           </strong>{" "}
           <i className="self-end pl-1 pr-1" style={{ fontSize: "12px" }}>
@@ -111,7 +111,7 @@ const Commentsection = ({ movie, selected }) => {
       <Newcomment movie={movie} />
 
       <div>
-        <h1 className=" transition-all duration-1000 font-extrabold text-pink-500">Comments:</h1>
+        <h1 className=" transition-all duration-1000 font-extrabold text-pink-500">{loading ? "Loading comments..." : "Comments:"}</h1>
         {comments && comments.length > 0 ? (
           renderComments(Nestedversion(comments))
         ) : (
