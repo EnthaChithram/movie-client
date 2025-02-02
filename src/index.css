@@ -9,9 +9,7 @@
 
 /* @tailwind utilities; */
 
-* {
-  margin: 0;
-}
+* {}
 
 html {
   background-color: #1d232a;
@@ -21,11 +19,6 @@ html {
   overflow-y: scroll;
 }
 
-.reply {
-  transition: 3s;
-  transition-delay: 0.5s;
-
-}
 
 
 
@@ -47,7 +40,7 @@ html {
 }
 
 .formdiv {
-  @apply flex items-center justify-center w-full
+  @apply flex flex-col mt-8 items-center justify-center w-full
 }
 
 .authform {
@@ -59,7 +52,7 @@ html {
 }
 
 .navtext {
-  @apply text-orange-400 pl-5 pr-5 m-10 rounded-xl;
+  @apply text-orange-600 font-bold pl-5 pr-5 m-10 rounded-xl;
 }
 
 .navtext {

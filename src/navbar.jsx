@@ -10,15 +10,15 @@ const Navbar = () => {
 
   return (
     <>
-      <div className=" navbar flex justify-center p-8 items-center -mt-2">
+      <div className=" navbar flex justify-center p-8 items-center">
         <h1>
-          <Link className="navtext text-4xl hover:shadow-[0_5px_20px_rgba(0,0,0,0.8)]" to="/movies">
+          <Link className=" navtext mr-auto text-4xl hover:shadow-[0_5px_20px_rgba(0,0,0,0.8)]" to="/movies">
             MOVIES
           </Link>
         </h1>
         {user && (
           <h1>
-            <Link className="navtext" to="/mycomments">
+            <Link className="navtext hover:shadow-[0_5px_20px_rgba(0,0,0,0.8)] p-1" to="/mycomments">
               my comments
             </Link>
           </h1>
@@ -35,16 +35,16 @@ const Navbar = () => {
           </div>
         )}
 
-        {user && <h1 className="pr-2" style={{ marginLeft: "auto" }}>Hello, {user.username}! </h1>}
+        {user && <h1 className="pr-2 ml-auto mr-15" >Hello, {user.username}! </h1>}
 
 
         {user && (
-          <h1
+          <h1 className=""
             onClick={() => {
               logout();
             }}
           >
-            <Link to="/"> logout </Link>
+            <Link to="/"> Logout </Link>
           </h1>
         )}
       </div>

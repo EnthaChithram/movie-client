@@ -33,12 +33,12 @@ export const MyComments = () => {
       {comments.map((comment) => (
         <Link
           key={comment._id}
-          style={{ textDecoration: "none", color: "blue" }}
-          to={"/movies/" + comment.movieid._id}
+          style={{ textDecoration: "none", }}
+          to={"/movies/" + comment.movieid}
         >
           <div>
             <h1>{comment.movieid.name}</h1>
-            <h3 style={{ color: "black" }}>{comment.text}</h3>
+            <h3 style={{}}>{comment.text}</h3>
           </div>
         </Link>
       ))}

@@ -40,6 +40,8 @@ const Newcomment = ({ movie }) => {
       const json = await response.json();
 
       dispatch({ type: "create_comment", payload: json });
+      dispatch({ type: "reply_off" });
+      dispatch({ type: "updatecc", payload: null })
       setLoading(false)
       console.log(json);
       //   window.location.reload();
@@ -70,7 +72,7 @@ const Newcomment = ({ movie }) => {
 
         <input type="hidden" name="movieid" value={movieid}></input>
 
-        <button className=" text-white w-24 p-2 rounded-md self-end cursor-pointer"
+        <button className="ml-auto cursor-pointer pl-4 pr-4 pb-0.5 text-black font-semibold hover:bg-orange-700 rounded-2xl bg-orange-600 shadow-[0_2px_20px_rgba(0,0,0,0.8)]"
           type="submit">{loading ? "posting.." : "Comment"}</button>
 
       </form>

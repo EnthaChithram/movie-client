@@ -47,12 +47,17 @@ const Login = () => {
 
 
 
+
+
+
+
+
+      <div className="mt-4">
+        Already have an account? <Link className="text-orange-600 underline" to={"/signup"}>Signup</Link>
+      </div>
       {message && (
-        <>
-          <div>{message.message} </div>
-          <p style={{ color: "red" }}>{message.error} </p>
-        </>
-      )}
+        <><div>{message.message} </div>
+          <p style={{ color: "red" }}>{message.error} </p></>)}
     </div>
   );
 };

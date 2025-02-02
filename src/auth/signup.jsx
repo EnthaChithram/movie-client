@@ -44,11 +44,15 @@ const Signup = () => {
 
         <button type="submit" className="shadow-[0_5px_20px_rgba(0,0,0,0.8)] rounded-md transition duration-500">Sign Up</button>
       </form>
+
+      <div className="mt-4">
+        Already have an account? <Link className="text-orange-600 underline " to={"/Login"}>Login</Link>
+      </div>
       {message && (
-        <>
+        <div className="">
           <div>{message.message} </div>
           <p style={{ color: "red" }}>{message.error} </p>
-        </>
+        </div>
       )}
     </div>
   );

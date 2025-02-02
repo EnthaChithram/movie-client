@@ -62,10 +62,10 @@ const Reply = ({ movie, comment }) => {
 
 
   return (
-    <div >
-      <div className="flex ">
-        <div className="pl-2">[Likes]{"  "}</div>
-        <button className="cursor-pointer pl-2"
+    <div  >
+      <div className="flex mb-2 z-1 ">
+        <div className="ml-2 z-10">[Likes]{"  "}</div>
+        <button className="cursor-pointer ml-2 z-10"
           onClick={() => {
             handleReply(comment._id);
           }}
@@ -73,35 +73,37 @@ const Reply = ({ movie, comment }) => {
           Reply
         </button>
       </div>
-      {cc === comment._id && isReplying ? (
-        <form className="reply flex flex-col space-y-2 pl-[35px]"
-          style={{ transition: "1s", }}
-          onSubmit={handleSubmit}>
-          <textarea className="overflow-hidden resize-none h-[40px] w-full focus:outline-none border-1 rounded-3xl p-2 border-[#413e56] focus:border-white"
-            style={{ marginTop: "20px", height: !isReplying ? "0" : null }}
-            type="text"
-            id="text"
-            name="text"
-            required
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-          ></textarea>
+      {/* {cc === comment._id && isReplying ?) : null ( */}
+      <form className={"reply flex flex-col space-y-2 pl-[35px]  "}
+        style={{ zIndex: "-10", transition: "transform 0.5s", visibility: cc === comment._id && isReplying ? "visible" : "hidden", transform: isReplying ? "translateY(0px)" : "translateY(-60px)" }}
+        onSubmit={handleSubmit}>
+        <textarea className="overflow-hidden resize-none h-[40px] w-full focus:outline-none border-1 rounded-3xl p-2 border-[#413e56] focus:border-white"
+          style={{ marginTop: "20px" }}
+          type="text"
+          id="text"
+          name="text"
+          required
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+        ></textarea>
 
-          <input type="hidden" name="parentid" value={parentid}></input>
+        <input type="hidden" name="parentid" value={parentid}></input>
 
-          <input type="hidden" name="movieid" value={movieid}></input>
-          <div className="self-end space-x-1.5 flex ">
-            <button className="cursor-pointer pr-2" type="submit">{loading ? "replying.." : "Reply"}</button>
-            <button className="cursor-pointer pl-1 pr-1" type="button" onClick={() => {
-              handleReply(comment._id);
-            }}>cancelll</button>
-          </div>
-        </form>
-      ) : null}
+        <input type="hidden" name="movieid" value={movieid}></input>
+        <div className="self-end space-x-1.5 flex ">
+          <button className="cursor-pointer pl-3 pr-3 pb-0.5  font-semibold rounded-2xl hover:bg-black shadow-[0_2px_20px_rgba(0,0,0,0.8)]" type="button" onClick={() => {
+            handleReply(comment._id);
+          }}>Cancel</button>
+          <button className="cursor-pointer pl-4 pr-4 pb-0.5 text-black font-semibold hover:bg-orange-700 rounded-2xl bg-orange-600 shadow-[0_2px_20px_rgba(0,0,0,0.8)]" type="submit">{loading ? "replying.." : "Reply"}</button>
+
+        </div>
+      </form>
 
 
 
-    </div>
+
+
+    </div >
   );
 };
 
