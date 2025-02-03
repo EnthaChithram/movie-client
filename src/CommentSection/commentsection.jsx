@@ -49,7 +49,7 @@ const Commentsection = ({ movie, loading }) => {
       <div className={' flex flex-col z-10'}
         key={comment._id}
         style={{
-          marginLeft: comment.parentid === null ? "10px" : "35px", marginTop: "10px", marginBottom: comment.parentid === null ? "20px" : null, transition: "0.5s"
+          marginLeft: comment.parentid === null ? "10px" : "35px", marginTop: "5px", marginBottom: comment.parentid === null ? "45px" : null, transition: "0.5s"
 
         }}
       >
@@ -57,27 +57,27 @@ const Commentsection = ({ movie, loading }) => {
         <div className="flex w-full items-center " style={{
           marginBottom: "10px", transition: "1s"
         }}>
-          <strong className="transition-all duration-1000 shadow-[0_2px_10px_rgba(0,0,0,0.8),0_-0.5px_10px_rgba(0,0,0,0.8)] rounded-md pl-1 pr-1 pb-1">
+          <strong className="transition-all duration-1000 shadow-[0_2px_10px_rgba(0,0,0,0.8),0_-0.5px_10px_rgba(0,0,0,0.8)] rounded-3xl pl-3 pr-3 pb-0.5">
             @{comment.userid ? comment.userid?.username : "[deleted]"}
           </strong>{" "}
-          <i className="self-end pl-1 pr-1" style={{ fontSize: "12px" }}>
+          <i className=" pl-1 pr-1" style={{ fontSize: "12px" }}>
             {" "}
             {formatDistanceToNow(new Date(comment.createdAt), {
               addSuffix: true,
             })}
           </i>{" "}
           {user && comment.userid && comment.userid._id === user.userid ? (
-            <button className="z-10 shadow-[0_2px_5px_rgba(0,0,0,0.8),0_-0.5px_5px_rgba(0,0,0,0.8)] transition-transform duration-300 hover:translate-y-[-3px] hover:shadow-[0_2px_20px_rgba(0,0,0,0.8)] rounded-md cursor-pointer pl-1 pr-1"
+            <button className="z-10 shadow-[0_2px_5px_rgba(0,0,0,0.8),0_-0.5px_5px_rgba(0,0,0,0.8)] transition-transform duration-300 hover:translate-y-[-3px] hover:shadow-[0_2px_20px_rgba(0,0,0,0.8)] cursor-pointer rounded-3xl pl-3 pr-3 pb-0.5"
               onClick={() => {
                 handleDelete(comment._id, comment.children.length);
               }}
             >
-              delete
+              Delete
             </button>
           ) : null}
         </div>
 
-        <div className="textt shadow-[0_5px_20px_rgba(0,0,0,0.8),0_-0.5px_20px_rgba(0,0,0,0.8)] rounded-md pl-4 pt-2 pb-2 bg-[#1d232a] z-3" >
+        <div className="text-left shadow-[0_5px_20px_rgba(0,0,0,0.8),0_-0.5px_20px_rgba(0,0,0,0.8)] rounded-md pl-4 pt-2 pb-2 bg-[#1d232a] z-3" >
           {comment.text}
 
         </div>
@@ -100,7 +100,8 @@ const Commentsection = ({ movie, loading }) => {
     <div
       style={{
         maxWidth: "750px",
-        margin: "30px 270px",
+        margin: "auto",
+        textAlign: "center",
 
         padding: "5px",
 

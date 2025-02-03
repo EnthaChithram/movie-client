@@ -34,20 +34,25 @@ const Movies = () => {
 
 
   return (
-    <div>
-      <h2 className="text-red-500">movie list:</h2>
-      {movies && movies.map((movie) => (
-        <div className="movieinfo" key={movie.id}>
-          <Link to={"/movies/" + movie.id}>
-            <div>{movie.name}</div>
-            <div>{movie.year}</div>
-            <div>{movie?.id}</div>
-            <img src={movie.poster} alt={movie.title} width="300" />
-            <br></br>
-          </Link>
-        </div>
-      ))}
-    </div>
+    <div className="flex-col flex">
+      <h2 className="text-red-500 text-center ">movie list:</h2>
+      <div className="mt-5 mx-auto grid grid-cols-3 gap-x-15 gap-y-10 items-baseline">
+        {movies && movies.map((movie) => (
+          <div className="bg-[#2c3440] movieinfo rounded-2xl transition duration-500 shadow-[0_2px_10px_rgba(0,0,0,0.8)] hover:shadow-[0_10px_40px_rgba(0,0,0,1)] hover:-translate-y-3" key={movie.id}>
+            <Link to={"/movies/" + movie.id}>
+
+              <div className="opacity-100 "><img src={movie.poster} alt={movie.title} className="h-[350px] w-[233px] rounded-t-2xl" /></div>
+
+              <div className="m-2 text-[#f0f0f0]">{movie.name}</div>
+              <div className="m-2 text-[#f0f0f0]">{movie.year}</div>
+              {/* <div>{movie?.id}</div> */}
+
+
+            </Link>
+          </div >
+        ))}
+      </div >
+    </div >
   );
 };
 

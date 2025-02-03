@@ -8,7 +8,7 @@ import movies from "./manualData";
 
 const Moviepage = () => {
   const { id } = useParams();
-  const movie = movies.find((m) => m.id === id)
+  const movie = movies.find((m) => m.id === id) || { name: "movie not found" }
   const location = useLocation();
   // const [movie, setMovie] = useState(null);
   // const [comments, setComments] = useState(null)
@@ -42,13 +42,13 @@ const Moviepage = () => {
       <div
         className="moviepage"
         style={{
-          maxWidth: "400px",
+          maxWidth: "700px",
           margin: "30px auto",
           textAlign: "center",
         }}
       >
 
-        <h1 className="text-red text-9xl">{movie.name}</h1>
+        <h1 className=" text-9xl">{movie.name}</h1>
         <h4>{movie.year}</h4>
 
 

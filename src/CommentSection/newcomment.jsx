@@ -58,7 +58,7 @@ const Newcomment = ({ movie }) => {
     <>
       <form className="flex flex-col space-y-2 " onSubmit={handleSubmit}>
 
-        <textarea className=" overflow-hidden resize-none h-[50px] w-full focus:outline-none border-1 rounded-3xl p-3 border-[#413e56] focus:border-white"
+        <textarea className=" overflow-hidden resize-none h-[50px] w-full focus:outline-none border-1 rounded-3xl p-3  border-[#413e56] focus:border-white"
           type="text"
           placeholder="Add a comment"
           id="text"
@@ -72,7 +72,7 @@ const Newcomment = ({ movie }) => {
 
         <input type="hidden" name="movieid" value={movieid}></input>
 
-        <button className="ml-auto cursor-pointer pl-4 pr-4 pb-0.5 text-black font-semibold hover:bg-orange-700 rounded-2xl bg-orange-600 shadow-[0_2px_20px_rgba(0,0,0,0.8)]"
+        <button className="ml-auto cursor-pointer pl-4 pr-4 pb-0.5 transition duration-300 text-black font-semibold hover:bg-orange-700 rounded-2xl bg-orange-600 shadow-[0_2px_20px_rgba(0,0,0,0.8)]"
           type="submit">{loading ? "posting.." : "Comment"}</button>
 
       </form>
