@@ -42,7 +42,7 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
         ></input>
 
-        <button className="shadow-[0_5px_20px_rgba(0,0,0,0.8)] rounded-md" type="submit">Login</button>
+        <button className="transition duration-300 shadow-[0_5px_20px_rgba(0,0,0,0.8)] hover:shadow-[0_10px_40px_rgba(0,0,0,1)] rounded-md" type="submit">Login</button>
       </form>
 
 
@@ -53,7 +53,7 @@ const Login = () => {
 
 
       <div className="mt-4">
-        Already have an account? <Link className="text-orange-600 underline" to={"/signup"}>Signup</Link>
+        Don't have an account? <Link className="text-orange-600 underline" to={"/signup"}>Signup</Link>
       </div>
       {message && (
         <><div>{message.message} </div>

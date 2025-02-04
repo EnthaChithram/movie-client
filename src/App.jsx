@@ -29,7 +29,7 @@ function App() {
   const { user, loading } = useContext(AuthContext);
   const { isloading } = useContext(LoadingContext);
 
-  const { loading: serverloading } = useFetch(
+  const { loading: serverloading, error } = useFetch(
     import.meta.env.VITE_API_URL + "movies/"
   );
 
@@ -38,6 +38,7 @@ function App() {
       <div>
         <div className="please">SERVER COLD-START</div>
         <div className="server">PLEASE WAIT FOR 20 SECONDS</div>
+        {error && <h1>{error}</h1>}
       </div>
     );
   }

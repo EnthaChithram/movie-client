@@ -9,50 +9,50 @@ const Navbar = () => {
 
 
   return (
-    <>
-      <div className=" navbar flex justify-center p-8 items-center">
+    <div className="mt-2 pl-2 pr-2 mb-10">
+      <div className=" navbar flex justify-center items-center">
         <h1>
-          <Link className=" navtext mr-auto text-4xl hover:shadow-[0_5px_20px_rgba(0,0,0,0.8)]" to="/movies">
+          <Link className=" navtext mr-auto text-4xl " to="/movies">
             MOVIES
           </Link>
         </h1>
-        {user && (
-          <h1>
-            <Link className="navtext hover:shadow-[0_5px_20px_rgba(0,0,0,0.8)] p-1" to="/mycomments">
-              my comments
-            </Link>
-          </h1>
-        )}
+
 
         {!user && (
-          <div className=" ">
-            <Link className="navtext self-end hover:shadow-[0_5px_20px_rgba(0,0,0,0.8)] " to="/signup">
+          <div className="ml-auto ">
+            <Link className="navtext mr-3" to="/signup">
               SIGN UP
             </Link>
-            <Link className="navtext self-end hover:shadow-[0_5px_20px_rgba(0,0,0,0.8)]" to="/login">
+            <Link className="navtext mr-3" to="/login">
               LOGIN
             </Link>
           </div>
         )}
 
-        {user && <h1 className="pr-2 ml-auto mr-15" >Hello, {user.username}! </h1>}
+        {user && <h1 className="navtext mx-auto" >Hello, {user.username}! </h1>}
+
 
 
         {user && (
-          <h1 className=""
-            onClick={() => {
-              logout();
-            }}
-          >
-            <Link to="/"> Logout </Link>
-          </h1>
+          <div className="flex flex-col">
+            <h1>
+              <Link className="navtext " to="/mycomments">
+                My comments
+              </Link>
+            </h1>
+
+            <h1 className="underline self-end "
+              onClick={() => {
+                logout();
+              }}
+            >
+              <Link className="navtext " to="/"> Logout </Link>
+            </h1>
+          </div>
         )}
       </div>
-      <div>
-        {" "}
-        <h3 style={{ color: "red" }}>NO CSS YET </h3>
-      </div>
-    </>
+
+    </div>
   );
 };
 

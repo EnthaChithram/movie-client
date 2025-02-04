@@ -9,7 +9,7 @@
 
 /* @tailwind utilities; */
 
-* {}
+
 
 html {
   background-color: #1d232a;
@@ -52,7 +52,7 @@ html {
 }
 
 .navtext {
-  @apply text-orange-600 font-bold pl-5 pr-5 m-10 rounded-xl;
+  @apply text-orange-600 font-bold rounded-xl
 }
 
 .navtext {
@@ -76,6 +76,8 @@ html {
   font-family: "Bebas Neue";
 }
 
+
+
 /* .navbar {
   padding: 20px;
   display: flex;
@@ -89,9 +91,7 @@ html {
 } */
 
 
-.navbar .links {
-  margin-left: auto;
-}
+
 
 /* .navbar a {
  

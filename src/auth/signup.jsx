@@ -42,7 +42,7 @@ const Signup = () => {
           onChange={(e) => setPassword(e.target.value)}
         ></input>
 
-        <button type="submit" className="shadow-[0_5px_20px_rgba(0,0,0,0.8)] rounded-md transition duration-500">Sign Up</button>
+        <button type="submit" className="transition duration-300 shadow-[0_5px_20px_rgba(0,0,0,0.8)] hover:shadow-[0_10px_40px_rgba(0,0,0,1)] rounded-md">Sign Up</button>
       </form>
 
       <div className="mt-4">

@@ -34,16 +34,16 @@ const Movies = () => {
 
 
   return (
-    <div className="flex-col flex">
-      <h2 className="text-red-500 text-center ">movie list:</h2>
-      <div className="mt-5 mx-auto grid grid-cols-3 gap-x-15 gap-y-10 items-baseline">
+    <div className=" movies flex-col flex">
+      <h2 className="text-red-500 text-center ">2024</h2>
+      <div className="mt-5 mb-20 mx-auto grid grid-cols-4 gap-x-12 gap-y-20 items-start ">
         {movies && movies.map((movie) => (
-          <div className="bg-[#2c3440] movieinfo rounded-2xl transition duration-500 shadow-[0_2px_10px_rgba(0,0,0,0.8)] hover:shadow-[0_10px_40px_rgba(0,0,0,1)] hover:-translate-y-3" key={movie.id}>
+          <div className="bg-[#2c3440]  movieinfo rounded-2xl transition  duration-500 shadow-[0_2px_10px_rgba(0,0,0,0.8)] hover:shadow-[0_10px_40px_rgba(0,0,0,1)] hover:scale-103" key={movie.id}>
             <Link to={"/movies/" + movie.id}>
 
-              <div className="opacity-100 "><img src={movie.poster} alt={movie.title} className="h-[350px] w-[233px] rounded-t-2xl" /></div>
+              <div className=" "><img src={movie.poster} alt={movie.title} className="h-[350px] w-[233px]  rounded-t-2xl" /></div>
 
-              <div className="m-2 text-[#f0f0f0]">{movie.name}</div>
+              <div className="m-2  text-[#f0f0f0]">{movie.name}</div>
               <div className="m-2 text-[#f0f0f0]">{movie.year}</div>
               {/* <div>{movie?.id}</div> */}
 

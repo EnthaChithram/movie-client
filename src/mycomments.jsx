@@ -1,11 +1,13 @@
 import { Link, useParams } from "react-router-dom";
 import useFetch from "./hooks/useFetch";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "./context/AuthContext";
 import { Loading } from "./loading";
+import movies from "./manualData";
 
 export const MyComments = () => {
   const { user } = useContext(AuthContext);
+  const [movie, setMovie] = useState([])
 
   const {
     Data = {},
@@ -28,19 +30,23 @@ export const MyComments = () => {
 
   return (
     <div>
-      {loading ? <h1>loading...</h1> : <h1>my comments:</h1>}
+      {loading ? <h1>loading...</h1> : <h1 className="font-bold underline">My comments:</h1>}
 
       {comments.map((comment) => (
+
         <Link
           key={comment._id}
           style={{ textDecoration: "none", }}
           to={"/movies/" + comment.movieid}
         >
-          <div>
-            <h1>{comment.movieid.name}</h1>
-            <h3 style={{}}>{comment.text}</h3>
+          <div className="flex flexcol">
+
+            <h3 className="font-bold">{comment.parentid ? "You replied:" : "You commented:"} <p className="font-normal">{comment.text}</p></h3>
+
           </div>
+          <br></br>
         </Link>
+
       ))}
     </div>
   );
