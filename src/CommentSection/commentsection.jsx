@@ -49,7 +49,7 @@ const Commentsection = ({ movie, loading }) => {
       <div className={' flex flex-col z-10'}
         key={comment._id}
         style={{
-          marginLeft: comment.parentid === null ? "10px" : "35px", marginTop: "5px", marginBottom: comment.parentid === null ? "45px" : null, transition: "0.5s"
+          marginLeft: comment.parentid === null ? "10px" : "35px", marginTop: "5px", marginBottom: comment.parentid === null ? "30px" : null, transition: "0.5s"
 
         }}
       >
