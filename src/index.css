@@ -4,7 +4,7 @@
 /* base styles */
 /* #0b1416 -green from reddit*/
 
-/* #1d232a - grey*/
+/* #1d232a - grey -default*/
 @import "tailwindcss";
 
 /* @tailwind utilities; */
@@ -16,8 +16,10 @@ html {
   color: white;
   /* font-family: "Quicksand"; */
 
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
+  scrollbar-width: none;
 }
+
 
 
 

@@ -9,7 +9,7 @@ const Navbar = () => {
 
 
   return (
-    <div className="mt-2 pl-2 pr-2 mb-10">
+    <div className="fixed z-100 w-[1200px] mx-auto bg-[#e5ebf4cc] shadow-lg rounded-[5px] h-[75px] left-0 right-0 flex flex-col justify-center mt-4 pl-2 pr-2 mb-10" style={{}}>
       <div className=" navbar flex justify-center items-center">
         <h1>
           <Link className=" navtext mr-auto text-4xl " to="/movies">
