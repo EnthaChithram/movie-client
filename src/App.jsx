@@ -24,6 +24,7 @@ import { Loading } from "./loading";
 import { LoadingContext } from "./context/loadingContext";
 import useFetch from "./hooks/useFetch";
 import MovieCard from "./tmdbmovie";
+import { Mix } from "./auth/mix";
 
 function App() {
   const { user, loading } = useContext(AuthContext);
@@ -47,6 +48,7 @@ function App() {
     <div>
       <Router>
         <Navbar />
+        {/* <Mix /> */}
         <Routes>
           <Route path="/" element={<Movies />}></Route>
 
@@ -54,6 +56,7 @@ function App() {
           <Route path="/movies/:id" element={<Moviepage />}></Route>
           <Route path="/comments/:id" element={<Selectedcomment />}></Route>
           <Route path="/tmdb" element={<MovieCard />}></Route>
+          <Route path="/mix" element={<Mix />}></Route>
 
           <Route
             path="/signup"

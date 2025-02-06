@@ -60,6 +60,8 @@ const Reply = ({ movie, comment }) => {
     }
   };
 
+  const qq = isReplying ? "5s" : "5s"
+
 
   return (
     <div  >
@@ -76,8 +78,13 @@ const Reply = ({ movie, comment }) => {
       </div>
       {/* {cc === comment._id && isReplying ?) : null ( */}
 
+
       <form className={"reply flex flex-col space-y-2 pl-[35px]  "}
-        style={{ zIndex: "-10", transition: "transform 0.5s", visibility: cc === comment._id && isReplying ? "visible" : "hidden", transform: isReplying ? "translateY(0px)" : "translateY(-60px)" }}
+        style={{
+          zIndex: "-10", transition: "transform 0.5s, opacity 0.4s",
+          opacity: cc === comment._id && isReplying ? "1" : "0", transform: isReplying ? "translateY(0px)" : "translateY(-89px)",
+          pointerEvents: cc === comment._id && isReplying ? "auto" : "none",
+        }}
         onSubmit={handleSubmit}>
         <textarea className="overflow-hidden resize-none h-[40px] w-full focus:outline-none border-1 rounded-3xl  pl-3 pt-1.5 pb-0.5  border-[#413e56] focus:border-white"
           style={{ marginTop: "20px" }}

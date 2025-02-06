@@ -2,7 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import useFetch from "./hooks/useFetch";
 import { Link } from "react-router-dom";
 import { LoadingContext } from "./context/loadingContext";
-import movies from "./manualData";
+// import movies from "./manualData";
+import { englishmovies } from "./englishmovies";
 
 const Movies = () => {
   // const { Data: movies, loading } = useFetch(
@@ -31,11 +32,11 @@ const Movies = () => {
   // }, [])
 
 
-
+  const movies = englishmovies;
 
   return (
     <div className=" movies flex-col flex">
-      <h2 className="text-red-500 text-center ">2024</h2>
+      {/* <h2 className="text-red-500 text-center ">2024</h2> */}
       <div className="mt-5 mb-20 mx-auto grid grid-cols-4 gap-x-12 gap-y-20 items-start ">
         {movies && movies.map((movie) => (
           <div className="bg-[#2c3440]  movieinfo rounded-2xl transition  duration-500 shadow-[0_2px_10px_rgba(0,0,0,0.8)] hover:shadow-[0_10px_40px_rgba(0,0,0,1)] hover:scale-103" key={movie.id}>

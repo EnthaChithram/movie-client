@@ -5,10 +5,11 @@ import { useParams, useLocation } from "react-router-dom";
 import Commentsection from "./CommentSection/commentsection";
 import { useCommentsContext } from "./hooks/useCommentsContext";
 import movies from "./manualData";
+import { englishmovies } from "./englishmovies";
 
 const Moviepage = () => {
   const { id } = useParams();
-  const movie = movies.find((m) => m.id === id) || { name: "movie not found" }
+  const movie = englishmovies.find((m) => m.id === id) || { name: "movie not found" }
   const location = useLocation();
   // const [movie, setMovie] = useState(null);
   // const [comments, setComments] = useState(null)

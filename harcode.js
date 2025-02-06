@@ -24,12 +24,23 @@ const movies = [
   { id: "tt33291871" },
 ];
 
+const english = [
+  { id: "tt0468569" }, // The Dark Knight (2008)
+  { id: "tt0110912" }, // Pulp Fiction (1994)
+  { id: "tt0137523" }, // Fight Club (1999)
+  { id: "tt1375666" }, // Inception (2010)
+  { id: "tt0816692" }, // Interstellar (2014)
+  { id: "tt0407887" }, // The Departed (2006)
+  { id: "tt0482571" }, // The Prestige (2006)
+  { id: "tt15398776" }, // Oppenheimer (2023)
+];
+
 const API_KEY = "23c91a2c"; // Replace with your OMDb API key
 const API_URL = "http://www.omdbapi.com/?i=";
 
 const fetchMovies = async () => {
   const updatedMovies = await Promise.all(
-    movies.map(async (movie) => {
+    english.map(async (movie) => {
       const res = await fetch(`${API_URL}${movie.id}&apikey=${API_KEY}`);
       const data = await res.json();
 
@@ -43,7 +54,10 @@ const fetchMovies = async () => {
   );
 
   // Save to movies.json
-  fs.writeFileSync("./src/movies.json", JSON.stringify(updatedMovies, null, 2));
+  fs.writeFileSync(
+    "./src/englishmovies.json",
+    JSON.stringify(updatedMovies, null, 2)
+  );
 
   console.log("✅ Movie data saved to src/movies.json");
 };
