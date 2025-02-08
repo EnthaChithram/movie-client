@@ -8,8 +8,56 @@
 @import "tailwindcss";
 
 /* @tailwind utilities; */
+@utility ani-delay {
+  animation-delay: 1s;
+}
 
+.div {
+  animation: name duration timing-function delay iteration-count direction fill-mode;
+}
 
+@theme {
+
+  --animate-slide-down: slide-down 0.7s ease;
+
+  --animate-slide-up: slide-up 0.7s ease;
+
+  --animate-shadow: shadow 0.5s;
+
+  @keyframes slide-down {
+
+    0% {
+      transform: translateY(-47px)
+    }
+
+    100% {
+      transform: translateY(0)
+    }
+  }
+
+  @keyframes slide-up {
+
+    0% {
+      transform: translateY(50px)
+    }
+
+    100% {
+      transform: translateY(0)
+    }
+  }
+
+  @keyframes shadow {
+
+    0% {
+      box-shadow: none
+    }
+
+    100% {
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8), 0 -0.5px 20px rgba(0, 0, 0, 0.8);
+    }
+  }
+
+}
 
 html {
   background-color: #1d232a;

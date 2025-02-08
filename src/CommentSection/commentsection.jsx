@@ -45,6 +45,9 @@ const Commentsection = ({ movie, loading }) => {
   };
 
   const renderComments = (comments) => {
+    if (comments.length === 0) {
+      return (<p>  </p>)
+    }
     return comments.map((comment) => (
       <div className={' flex flex-col z-10'}
         key={comment._id}
@@ -54,7 +57,7 @@ const Commentsection = ({ movie, loading }) => {
         }}
       >
 
-        <div className="flex w-full items-center " style={{
+        <div className="animate-slide-up flex w-full items-center " style={{
           marginBottom: "10px", transition: "1s"
         }}>
           <strong className="transition-all duration-1000 shadow-[0_2px_10px_rgba(0,0,0,0.8),0_-0.5px_10px_rgba(0,0,0,0.8)] rounded-3xl pl-3 pr-3 pb-0.5">
@@ -77,12 +80,12 @@ const Commentsection = ({ movie, loading }) => {
           ) : null}
         </div>
 
-        <div className="text-left shadow-[0_5px_20px_rgba(0,0,0,0.8),0_-0.5px_20px_rgba(0,0,0,0.8)] rounded-md pl-4 pt-2 pb-2 bg-[#1d232a] z-3" >
+        <div className=" text-left shadow-[0_5px_20px_rgba(0,0,0,0.8),0_-0.5px_20px_rgba(0,0,0,0.8)] rounded-md pl-4 pt-2 pb-2 bg-[#1d232a] z-3" >
           {comment.text}
 
         </div>
 
-        <div className=" transition-transform transform duration-1000"
+        <div className="animate-slide-down transition-transform transform duration-1000"
           style={{ height: cc === comment._id ? "50px" : "30px", transition: "0.5s", marginBottom: cc === comment._id ? "70px" : "0", }}>
           <Reply movie={movie} comment={comment} />
         </div>
@@ -112,13 +115,9 @@ const Commentsection = ({ movie, loading }) => {
 
       <Newcomment movie={movie} />
 
-      <div>
+      <div >
         <h1 className=" transition-all duration-1000 font-extrabold text-orange-600">{loading ? "Loading comments..." : "Comments:"}</h1>
-        {comments && comments.length > 0 ? (
-          renderComments(Nestedversion(comments))
-        ) : (
-          <p>No comments yet.</p>
-        )}
+        {comments && renderComments(Nestedversion(comments))}
       </div>
     </div>
   );
