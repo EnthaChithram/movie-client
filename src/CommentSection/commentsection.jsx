@@ -49,7 +49,7 @@ const Commentsection = ({ movie, loading }) => {
       return (<p>  </p>)
     }
     return comments.map((comment) => (
-      <div className={' flex flex-col z-10'}
+      <div className={'animate-appear flex flex-col z-10'}
         key={comment._id}
         style={{
           marginLeft: comment.parentid === null ? "10px" : "40px", marginTop: "5px", marginBottom: comment.parentid === null ? "30px" : null, transition: "0.5s"
@@ -60,7 +60,7 @@ const Commentsection = ({ movie, loading }) => {
         <div className="animate-slide-up flex w-full items-center " style={{
           marginBottom: "10px", transition: "1s"
         }}>
-          <strong className="transition-all duration-1000 shadow-[0_2px_10px_rgba(0,0,0,0.8),0_-0.5px_10px_rgba(0,0,0,0.8)] rounded-3xl pl-3 pr-3 pb-0.5">
+          <strong className={`${comment.userid ? null : "text-gray-400"}  transition-all duration-1000 shadow-[0_2px_10px_rgba(0,0,0,0.8),0_-0.5px_10px_rgba(0,0,0,0.8)] rounded-3xl pl-3 pr-3 pb-0.5`}>
             @{comment.userid ? comment.userid?.username : "[deleted]"}
           </strong>{" "}
           <i className=" pl-1 pr-1" style={{ fontSize: "12px" }}>
@@ -80,7 +80,7 @@ const Commentsection = ({ movie, loading }) => {
           ) : null}
         </div>
 
-        <div className=" text-left shadow-[0_5px_20px_rgba(0,0,0,0.8),0_-0.5px_20px_rgba(0,0,0,0.8)] rounded-md pl-4 pt-2 pb-2 bg-[#1d232a] z-3" >
+        <div className={`${comment.userid ? null : "text-gray-400"} text-left shadow-[0_5px_20px_rgba(0,0,0,0.8),0_-0.5px_20px_rgba(0,0,0,0.8)] rounded-md pl-4 pt-2 pb-2 bg-[#1d232a] z-3`}>
           {comment.text}
 
         </div>

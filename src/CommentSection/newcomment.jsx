@@ -72,8 +72,8 @@ const Newcomment = ({ movie }) => {
 
         <input type="hidden" name="movieid" value={movieid}></input>
 
-        <button className="ml-auto cursor-pointer pl-4 pr-4 pb-0.5 transition duration-300 text-black font-semibold hover:bg-orange-700 rounded-2xl bg-orange-600 shadow-[0_2px_20px_rgba(0,0,0,0.8)]"
-          type="submit">{loading ? "posting.." : "Comment"}</button>
+        <button className={` w-[145px] self-end cursor-pointer px-2 pb-0.5 transition-all duration-300 text-black font-semibold hover:bg-orange-700 rounded-2xl bg-orange-600 shadow-[0_2px_20px_rgba(0,0,0,0.8)]`}
+          type="submit">{loading ? "Commenting..." : "Comment"}</button>
 
       </form>
     </>

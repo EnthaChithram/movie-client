@@ -49,7 +49,7 @@ const Moviepage = () => {
         }}
       >
 
-        <h1 className=" text-9xl">{movie.name}</h1>
+        <h1 className=" text-5xl">{movie.name}</h1>
         <h4>{movie.year}</h4>
 
 

@@ -101,10 +101,10 @@ const Reply = ({ movie, comment }) => {
 
         <input type="hidden" name="movieid" value={movieid}></input>
         <div className="self-end space-x-1.5 flex ">
-          <button className="cursor-pointer pl-3 pr-3 pb-0.5 transition duration-300 font-semibold rounded-2xl hover:bg-black shadow-[0_2px_20px_rgba(0,0,0,0.8)]" type="button" onClick={() => {
+          <button className="cursor-pointer w-[100px] pl-3 pr-3 pb-0.5 transition duration-300 font-semibold rounded-2xl hover:bg-[#0e1115] shadow-[0_2px_20px_rgba(0,0,0,0.8)]" type="button" onClick={() => {
             handleReply(comment._id);
           }}>Cancel</button>
-          <button className="cursor-pointer pl-4 pr-4 pb-0.5 transition duration-300 text-black font-semibold hover:bg-orange-700 rounded-2xl bg-orange-600 shadow-[0_2px_20px_rgba(0,0,0,0.8)]" type="submit">{loading ? "replying.." : "Reply"}</button>
+          <button className={`w-[100px] cursor-pointer px-4 pb-0.5 transition-all duration-300 text-black font-semibold hover:bg-orange-700 rounded-2xl bg-orange-600 shadow-[0_2px_20px_rgba(0,0,0,0.8)]`} type="submit">{loading ? "Replying.." : "Reply"}</button>
 
         </div>
       </form>
