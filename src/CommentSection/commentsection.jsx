@@ -6,6 +6,8 @@ import Reply from "./reply";
 import { useCommentsContext } from "../hooks/useCommentsContext";
 import { formatDistanceToNow } from "date-fns";
 import { AuthContext } from "../context/AuthContext";
+import { motion } from "framer-motion";
+
 
 const Commentsection = ({ movie, loading }) => {
   const { cc, comments, dispatch, isReplying } = useCommentsContext();
@@ -49,10 +51,14 @@ const Commentsection = ({ movie, loading }) => {
       return (<p>  </p>)
     }
     return comments.map((comment) => (
-      <div className={'animate-appear flex flex-col z-10'}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, }}
+        className={` ${comment.parentid === null ? "md:ml-[10px]" : "ml-[20px] md:ml-[40px]"} mt-[3px] md:mt-[5px] ${comment.parentid === null ? "mb-[15px] md:mb-[30px]" : null}`}
         key={comment._id}
         style={{
-          marginLeft: comment.parentid === null ? "10px" : "40px", marginTop: "5px", marginBottom: comment.parentid === null ? "30px" : null, transition: "0.5s"
+
 
         }}
       >
@@ -70,7 +76,7 @@ const Commentsection = ({ movie, loading }) => {
             })}
           </i>{" "}
           {user && comment.userid && comment.userid._id === user.userid ? (
-            <button className="z-10 shadow-[0_2px_5px_rgba(0,0,0,0.8),0_-0.5px_5px_rgba(0,0,0,0.8)] transition-transform duration-300 hover:translate-y-[-3px] hover:shadow-[0_2px_20px_rgba(0,0,0,0.8)] cursor-pointer rounded-3xl pl-3 pr-3 pb-0.5"
+            <button className=" shadow-[0_2px_5px_rgba(0,0,0,0.8),0_-0.5px_5px_rgba(0,0,0,0.8)] transition-transform duration-300 hover:translate-y-[-3px] hover:shadow-[0_2px_20px_rgba(0,0,0,0.8)] cursor-pointer rounded-3xl pl-3 pr-3 pb-0.5"
               onClick={() => {
                 handleDelete(comment._id, comment.children.length);
               }}
@@ -80,7 +86,7 @@ const Commentsection = ({ movie, loading }) => {
           ) : null}
         </div>
 
-        <div className={`${comment.userid ? null : "text-gray-400"} text-left shadow-[0_5px_20px_rgba(0,0,0,0.8),0_-0.5px_20px_rgba(0,0,0,0.8)] rounded-md pl-4 pt-2 pb-2 bg-[#1d232a] z-3`}>
+        <div className={`z-300 relative ${comment.userid ? null : "text-gray-400"} text-left shadow-[0_5px_20px_rgba(0,0,0,0.8),0_-0.5px_20px_rgba(0,0,0,0.8)] rounded-md pl-4 pt-2 pb-2 bg-[#1d232a] `}>
           {comment.text}
 
         </div>
@@ -95,14 +101,14 @@ const Commentsection = ({ movie, loading }) => {
         {comment.children && comment.children.length > 0 && (
           <div>{renderComments(comment.children)}</div>
         )}
-      </div>
+      </motion.div>
     ));
   };
 
   return (
-    <div
+    <div className="text-[10px]  md:text-[16px] md:max-w-[750px] "
       style={{
-        maxWidth: "750px",
+
         margin: "auto",
         textAlign: "center",
 
@@ -115,7 +121,7 @@ const Commentsection = ({ movie, loading }) => {
 
       <Newcomment movie={movie} />
 
-      <div >
+      <div className={`px-5 md:px-0`} >
         <h1 className=" transition-all duration-1000 font-extrabold text-orange-600">{loading ? "Loading comments..." : "Comments:"}</h1>
         {comments && renderComments(Nestedversion(comments))}
       </div>

@@ -26,6 +26,9 @@ import useFetch from "./hooks/useFetch";
 import MovieCard from "./tmdbmovie";
 import { Mix } from "./auth/mix";
 import { Spacer } from "./spacer";
+import ContinuousTabs from "./extra";
+import { motion } from "framer-motion";
+import { Navcontextprovider } from "./context/navContext";
 
 function App() {
   const { user, loading } = useContext(AuthContext);
@@ -35,13 +38,34 @@ function App() {
     import.meta.env.VITE_API_URL + "movies/"
   );
 
+  if (error) {
+
+    return (
+      <h1 className="text-red-600 text-2xl lg:text-7xl">{error}</h1>
+    )
+  }
+
   if (serverloading) {
     return (
-      <div>
-        <div className="please">SERVER COLD-START</div>
-        <div className="server">PLEASE WAIT FOR 20 SECONDS</div>
+      <>
+        <motion.div
+          initial={{ y: "100vh" }}
+
+
+          animate={{ y: 0 }}
+          transition={{ type: "spring", bounce: 0.1, duration: 1.1, delay: 1.5, }}
+          className="please  top-[35%]  fixed ">SERVER COLD-START</motion.div>
+
+
+        <motion.div
+          initial={{ y: "100vh" }}
+
+
+          animate={{ y: 0 }}
+          transition={{ type: "spring", bounce: 0.1, duration: 1, delay: 3.5 }}
+          className="please   top-[50%]  fixed ">PLEASE WAIT FOR 20 SECONDS</motion.div>
         {error && <h1>{error}</h1>}
-      </div>
+      </>
     );
   }
 
@@ -49,7 +73,11 @@ function App() {
     <div>
       <Router>
         <Navbar />
-        <Spacer height="115px" />
+        <Navcontextprovider>
+
+        </Navcontextprovider>
+
+        {/* <Spacer height="50px" /> */}
         {/* <Mix /> */}
 
         <Routes>
@@ -71,6 +99,7 @@ function App() {
           ></Route>
           <Route path="/users" element={<Users />}></Route>
           <Route path="/mycomments" element={<MyComments />}></Route>
+          <Route path="/extra" element={<ContinuousTabs></ContinuousTabs>}></Route>
         </Routes>
 
       </Router>

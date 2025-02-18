@@ -8,6 +8,7 @@ import { Colorcontextprovider } from "./context/colorcontext";
 import { ListContextProvider } from "./context/listcontext";
 import { AuthContextProvider } from "./context/AuthContext";
 import { LoadingContextProvider } from "./context/loadingContext";
+import { Navcontextprovider } from "./context/navContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -16,7 +17,10 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Colorcontextprovider>
           <ListContextProvider>
             <AuthContextProvider>
-              <App />
+              <Navcontextprovider>
+                <App />
+              </Navcontextprovider>
+
             </AuthContextProvider>
           </ListContextProvider>
         </Colorcontextprovider>
