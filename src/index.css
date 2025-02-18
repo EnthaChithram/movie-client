@@ -17,7 +17,6 @@
 } */
 
 @theme {
-
   --animate-slide-down: slide-down 0.7s ease;
 
   --animate-slide-up: slide-up 0.7s ease;
@@ -25,105 +24,103 @@
   --animate-appear: appear 2s;
 
   @keyframes slide-down {
-
     0% {
-      transform: translateY(-47px)
+      transform: translateY(-47px);
     }
 
     100% {
-      transform: translateY(0)
+      transform: translateY(0);
     }
   }
 
   @keyframes slide-up {
-
     0% {
-      transform: translateY(50px)
+      transform: translateY(50px);
     }
 
     100% {
-      transform: translateY(0)
+      transform: translateY(0);
     }
   }
 
   @keyframes appear {
-
     0% {
-      opacity: 0
+      opacity: 0;
     }
 
     100% {
-      opacity: 100%
+      opacity: 100%;
     }
   }
-
 }
 
 html {
-
-
-
-  background-color: #1d232a;
-  /* background-color: black;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 4px 4px; */
-  /* Super fine pixel grid */
-
-
-
-
+  background-image: repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.007) 0px,
+      rgba(255, 255, 255, 0.007) 1px,
+      transparent 1px,
+      transparent 20px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.007) 0px,
+      rgba(255, 255, 255, 0.007) 1px,
+      transparent 1px,
+      transparent 20px
+    ),
+    linear-gradient(
+      135deg,
+      #030407 0%,
+      /* Darkest blue-black */ #050913 35%,
+      /* Very dark blue */ #0a0f1b 65%,
+      /* Dark blue */ #050913 85%,
+      /* Back to very dark blue */ #030407 100% /* Back to darkest blue-black */
+    );
+  /* background-attachment: fixed; */
 
   color: white;
   /* font-family: "Quicksand"; */
 
   /* overflow-y: scroll; */
   scrollbar-width: none;
+  min-height: 100vh;
 }
 
-
-
-
-
-
-
 .authform button {
-  background: #1d232a;
+  background: linear-gradient(135deg, #0f172a 0%, #1a2436 50%, #0f172a 100%);
   border: 0;
   color: #fff;
   padding: 5px;
   /* font-family: "Poppins"; */
 
-
-  cursor: pointer
+  cursor: pointer;
 }
 
 .please {
-  @apply text-2xl md:text-7xl
+  @apply text-2xl md:text-7xl;
 }
 
 .authlabel {
-  @apply text-white block mt-5
+  @apply text-white block mt-5;
 }
 
 .formdiv {
-  @apply flex flex-col mt-30 items-center justify-center w-full
+  @apply flex flex-col mt-20 items-center justify-center w-full;
 }
 
 .authform {
-  @apply bg-[#1d232a] w-[350px] block p-5 text-[#95a5b6] rounded-xl flex flex-col
+  @apply bg-[#1d232a] w-[350px]  p-5 text-[#95a5b6] rounded-xl flex flex-col;
+  background: linear-gradient(135deg, #0f172a 0%, #1a2436 50%, #0f172a 100%);
 }
 
 .authinput {
-  @apply p-0.5 text-black bg-[#ccddee] block rounded-sm focus:outline-none focus:bg-white focus:caret-black mt-2 mb-6
+  @apply p-0.5 text-white bg-[#1e293b]  transition-all duration-300 block rounded-sm focus:outline-none focus:bg-[#0f172a] focus:caret-white mt-2 mb-6;
 }
 
 .navtext {
-  @apply text-orange-600 font-bold
+  @apply text-orange-600 font-bold;
 }
-
-
 
 /* .navtext:hover {
   color: black;
@@ -140,8 +137,6 @@ html {
   font-family: "Bebas Neue";
 }
 
-
-
 /* .navbar {
   padding: 20px;
   display: flex;
@@ -153,9 +148,6 @@ html {
 
   overflow: visible;
 } */
-
-
-
 
 /* .navbar a {
  
@@ -200,20 +192,13 @@ html {
   font-family: "Bebas Neue";
 
   font-weight: 400;
-
-
-
 }
-
 
 .server {
   text-align: center;
 
-
-
   align-content: center;
   width: 100%;
-
 
   /* transition: 0.6s;
   animation-name: up;
@@ -227,15 +212,38 @@ html {
   font-family: "Bebas Neue";
 
   font-weight: 400;
-
 }
 
 @keyframes up {
-  0% {}
+  0% {
+  }
 
   100% {
     /* transform: translateX(300px); */
     transform: translateY(-450px);
-
   }
+}
+
+.comment-gradient {
+  background: linear-gradient(
+    0deg,
+    #0f172a 0%,
+    #0f172a 15%,
+    #101827 35%,
+    #101928 50%,
+    #101827 65%,
+    #0f172a 85%,
+    #0f172a 100%
+  );
+  background-image: -moz-linear-gradient(
+    0deg,
+    #0f172a 0%,
+    #0f172a 15%,
+    #101827 35%,
+    #101928 50%,
+    #101827 65%,
+    #0f172a 85%,
+    #0f172a 100%
+  );
+  background-color: #0f172a;
 }

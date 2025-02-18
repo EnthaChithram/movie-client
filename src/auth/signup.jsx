@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSignup } from "../hooks/useSignup";
 import { NavContext } from "../context/navContext";
-import { motion } from "framer-motion";
+import { motion, springare } from "framer-motion";
 
 
 const Signup = () => {
@@ -22,9 +22,9 @@ const Signup = () => {
   return (
     <div className="formdiv  ">
       <motion.form
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.7 }}
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, type: spring, bounce: 0.3 }}
 
         className="authform shadow-[0_5px_20px_rgba(0,0,0,0.8)]" onSubmit={handleSubmit}> CREATE AN ACCOUNT
         <label className="authlabel">Username</label>

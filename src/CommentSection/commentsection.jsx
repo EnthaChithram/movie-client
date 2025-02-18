@@ -86,9 +86,8 @@ const Commentsection = ({ movie, loading }) => {
           ) : null}
         </div>
 
-        <div className={`z-300 relative ${comment.userid ? null : "text-gray-400"} text-left shadow-[0_5px_20px_rgba(0,0,0,0.8),0_-0.5px_20px_rgba(0,0,0,0.8)] rounded-md pl-4 pt-2 pb-2 bg-[#1d232a] `}>
+        <div className={`z-300 relative ${comment.userid ? null : "text-gray-400"} text-left shadow-[0_5px_20px_rgba(0,0,0,0.8),0_-0.5px_20px_rgba(0,0,0,0.8)] rounded-md pl-4 pt-2 pb-2 comment-gradient`}>
           {comment.text}
-
         </div>
 
         <div className="animate-slide-down transition-transform transform duration-1000"

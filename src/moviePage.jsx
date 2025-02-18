@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import useFetch from "./hooks/useFetch";
 import { useParams, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
 
 import Commentsection from "./CommentSection/commentsection";
 import { useCommentsContext } from "./hooks/useCommentsContext";
@@ -45,12 +46,26 @@ const Moviepage = () => {
         style={{
           maxWidth: "700px",
           margin: "30px auto",
+
           textAlign: "center",
         }}
       >
 
-        <h1 className=" text-5xl">{movie.name}</h1>
-        <h4>{movie.year}</h4>
+        <motion.h1
+          className="text-5xl"
+          initial={{ opacity: 0, }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          {movie.name}
+        </motion.h1>
+        <motion.h4
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+        >
+          {movie.year}
+        </motion.h4>
 
 
 
