@@ -64,8 +64,8 @@ const Reply = ({ movie, comment }) => {
 
 
   return (
-    <div  >
-      <div className="flex mb-2 z-1 ">
+    <div className="h-0">
+      <div className="flex  z-1 ">
         <div className="ml-2 z-10">[Likes]{"  "}</div>
         {comment.userid && comment.userid._id && (<button className="cursor-pointer ml-2 z-10"
           onClick={() => {

@@ -47,16 +47,13 @@ const Movies = () => {
       <div className="mx-auto grid items-start mt-10 mb-20 grid-cols-2 gap-x1 md:grid-cols-4 gap-x-12 gap-y-20  ">
         {movies && movies.map((movie) => (
           <motion.div
-
-
-
-            className=" bg-[#e5ebf4cc]  movieinfo rounded-2xl transition  duration-500 shadow-[0_2px_10px_rgba(0,0,0,0.8)] hover:shadow-[0_10px_40px_rgba(0,0,0,1)] hover:scale-103" key={movie.id}>
+            className=" bg-[#1a2436]  movieinfo rounded-2xl transition  duration-500 shadow-[0_2px_10px_rgba(0,0,0,0.8)] hover:shadow-[0_10px_40px_rgba(0,0,0,1)] hover:scale-103" key={movie.id}>
             <Link to={"/movies/" + movie.id}>
 
               <div className=" "><img src={movie.poster} alt={movie.title} className="h-[200px] w-[133px]  md:h-[350px] md:w-[233px]  rounded-t-2xl" /></div>
 
-              <div className="my-1 mx-2 md:m-2 text-black">{movie.name}</div>
-              <div className="my-1 mx-2 md:m-2 text-black">{movie.year}</div>
+              <div className="my-1 mx-2 md:m-2 text-[#e5e7eb]  text-sm md:text-base">{movie.name}</div>
+              <div className="my-1 mx-2 md:m-2 text-[#9ca3af] text-xs md:text-sm">{movie.year}</div>
               {/* <div>{movie?.id}</div> */}
 
 

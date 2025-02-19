@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSignup } from "../hooks/useSignup";
 import { NavContext } from "../context/navContext";
-import { motion, springare } from "framer-motion";
+import { motion, spring } from "framer-motion";
 
 
 const Signup = () => {
@@ -52,7 +52,7 @@ const Signup = () => {
           onChange={(e) => setPassword(e.target.value)}
         ></input>
 
-        <button type="submit" className="transition duration-300 shadow-[0_5px_20px_rgba(0,0,0,0.8)] hover:shadow-[0_10px_40px_rgba(0,0,0,1)] rounded-md">Sign Up</button>
+        <button type="submit" className="transition duration-300 shadow-[0_5px_20px_rgba(0,0,0,0.8)] hover:shadow-[0_10px_40px_rgba(0,0,0,1)] rounded-md">{loading ? "Signing up..." : "Sign up"}</button>
       </motion.form>
 
       <div className="mt-4">

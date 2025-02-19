@@ -86,7 +86,8 @@ const Commentsection = ({ movie, loading }) => {
           ) : null}
         </div>
 
-        <div className={`z-300 relative ${comment.userid ? null : "text-gray-400"} text-left shadow-[0_5px_20px_rgba(0,0,0,0.8),0_-0.5px_20px_rgba(0,0,0,0.8)] rounded-md pl-4 pt-2 pb-2 comment-gradient`}>
+        <div className={` z-300 relative ${comment.userid ? null : "text-gray-400"} text-left shadow-[0_5px_20px_rgba(0,0,0,0.8),0_-0.5px_20px_rgba(0,0,0,0.8)] rounded-md pl-4 pt-2 pb-2 `}
+          style={{ background: comment.parentid === null ? "linear-gradient(155deg, #111c35 45%, #111c35 75%, #050913 100%)" : "#111c35" }}>
           {comment.text}
         </div>
 
@@ -121,7 +122,7 @@ const Commentsection = ({ movie, loading }) => {
       <Newcomment movie={movie} />
 
       <div className={`px-5 md:px-0`} >
-        <h1 className=" transition-all duration-1000 font-extrabold text-orange-600">{loading ? "Loading comments..." : "Comments:"}</h1>
+        <h1 className=" transition-all duration-1000 font-extrabold text-orange-600">{loading ? "Loading comments..." : comments.length === 0 ? "No comments yet" : "Comments:"}</h1>
         {comments && renderComments(Nestedversion(comments))}
       </div>
     </div>

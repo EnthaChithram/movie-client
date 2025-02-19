@@ -53,7 +53,7 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
         ></input>
 
-        <button className="transition duration-300 shadow-[0_5px_20px_rgba(0,0,0,0.8)] hover:shadow-[0_10px_40px_rgba(0,0,0,1)] rounded-md" type="submit">Login</button>
+        <button className="transition duration-300 shadow-[0_5px_20px_rgba(0,0,0,0.8)] hover:shadow-[0_10px_40px_rgba(0,0,0,1)] rounded-md" type="submit">{loading ? "Logging in..." : "Login"}</button>
       </motion.form>
 
 

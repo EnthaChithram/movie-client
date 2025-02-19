@@ -7,6 +7,42 @@
 /* #1d232a - grey -default*/
 @import "tailwindcss";
 
+html {
+  background-image: repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.007) 0px,
+      rgba(255, 255, 255, 0.007) 1px,
+      transparent 1px,
+      transparent 20px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.007) 0px,
+      rgba(255, 255, 255, 0.007) 1px,
+      transparent 1px,
+      transparent 20px
+    ),
+    linear-gradient(
+      135deg,
+      #000000 0%,
+      #111c35 15%,
+      #050913 25%,
+      #0c1526 50%,
+      #111c35 75%,
+      #0c1526 85%,
+      #000000 95%,
+      #000000 100%
+    );
+
+  background-attachment: fixed;
+
+  color: white;
+  /* font-family: "Quicksand"; */
+
+  /* overflow-y: scroll; */
+  scrollbar-width: none;
+}
+
 /* @tailwind utilities; */
 @utility ani-delay {
   animation-delay: 1s;
@@ -52,39 +88,6 @@
       opacity: 100%;
     }
   }
-}
-
-html {
-  background-image: repeating-linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.007) 0px,
-      rgba(255, 255, 255, 0.007) 1px,
-      transparent 1px,
-      transparent 20px
-    ),
-    repeating-linear-gradient(
-      0deg,
-      rgba(255, 255, 255, 0.007) 0px,
-      rgba(255, 255, 255, 0.007) 1px,
-      transparent 1px,
-      transparent 20px
-    ),
-    linear-gradient(
-      135deg,
-      #030407 0%,
-      /* Darkest blue-black */ #050913 35%,
-      /* Very dark blue */ #0a0f1b 65%,
-      /* Dark blue */ #050913 85%,
-      /* Back to very dark blue */ #030407 100% /* Back to darkest blue-black */
-    );
-  /* background-attachment: fixed; */
-
-  color: white;
-  /* font-family: "Quicksand"; */
-
-  /* overflow-y: scroll; */
-  scrollbar-width: none;
-  min-height: 100vh;
 }
 
 .authform button {
@@ -194,26 +197,6 @@ html {
   font-weight: 400;
 }
 
-.server {
-  text-align: center;
-
-  align-content: center;
-  width: 100%;
-
-  /* transition: 0.6s;
-  animation-name: up;
-  animation-duration: 1.3s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  position: absolute;
-  bottom: -150px;
-  animation-delay: 3.5s; */
-
-  font-family: "Bebas Neue";
-
-  font-weight: 400;
-}
-
 @keyframes up {
   0% {
   }
@@ -225,25 +208,18 @@ html {
 }
 
 .comment-gradient {
-  background: linear-gradient(
-    0deg,
-    #0f172a 0%,
-    #0f172a 15%,
-    #101827 35%,
-    #101928 50%,
-    #101827 65%,
-    #0f172a 85%,
-    #0f172a 100%
+  /* Option 1: Small blend area (5px transition) */
+  /* background-image: linear-gradient(90deg, #000000 20px, #00ff00 50px); */
+
+  /* Option 2: Larger blend area (10px transition) */
+  /* background-image: linear-gradient(90deg, #000, #000 20px, #0f0 30px); */
+
+  /* Option 3: Start transition earlier (more gradual) */
+
+  background-image: linear-gradient(
+    155deg,
+    #111c35 45%,
+    #050913 75%,
+    #111c35 100%
   );
-  background-image: -moz-linear-gradient(
-    0deg,
-    #0f172a 0%,
-    #0f172a 15%,
-    #101827 35%,
-    #101928 50%,
-    #101827 65%,
-    #0f172a 85%,
-    #0f172a 100%
-  );
-  background-color: #0f172a;
 }
