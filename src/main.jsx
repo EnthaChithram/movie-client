@@ -9,6 +9,7 @@ import { ListContextProvider } from "./context/listcontext";
 import { AuthContextProvider } from "./context/AuthContext";
 import { LoadingContextProvider } from "./context/loadingContext";
 import { Navcontextprovider } from "./context/navContext";
+import { HiddenRepliesContextProvider } from "./context/HiddenRepliesContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -18,7 +19,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <ListContextProvider>
             <AuthContextProvider>
               <Navcontextprovider>
-                <App />
+                <HiddenRepliesContextProvider>
+                  <App />
+                </HiddenRepliesContextProvider>
               </Navcontextprovider>
 
             </AuthContextProvider>

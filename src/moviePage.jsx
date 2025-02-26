@@ -7,11 +7,13 @@ import Commentsection from "./CommentSection/commentsection";
 import { useCommentsContext } from "./hooks/useCommentsContext";
 import movies from "./manualData";
 import { englishmovies } from "./englishmovies";
-
+import { NavContext } from "./context/navContext";
+import { useContext } from "react";
 const Moviepage = () => {
   const { id } = useParams();
   const movie = englishmovies.find((m) => m.id === id) || { name: "movie not found" }
   const location = useLocation();
+  const {setThh}=useContext(NavContext)
   // const [movie, setMovie] = useState(null);
   // const [comments, setComments] = useState(null)
 
@@ -24,6 +26,7 @@ const Moviepage = () => {
 
 
   useEffect(() => {
+    setThh(null)
     if (Data) {
       const comments = Data;
 

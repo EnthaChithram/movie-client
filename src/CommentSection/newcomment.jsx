@@ -2,11 +2,13 @@ import { useContext, useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useCommentsContext } from "../hooks/useCommentsContext";
 import { AuthContext } from "../context/AuthContext";
+import { NavContext } from "../context/navContext";
 
 const Newcomment = ({ movie }) => {
   const { dispatch } = useCommentsContext();
   const { user } = useContext(AuthContext);
-  // const { user } = useContext(AuthContext)
+  const {setThh}=useContext(NavContext)
+  
 
   const navigate = useNavigate();
 
@@ -47,6 +49,8 @@ const Newcomment = ({ movie }) => {
       //   window.location.reload();
     } else {
       navigate("/signup");
+      setThh(2)
+
     }
   };
 

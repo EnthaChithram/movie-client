@@ -5,10 +5,17 @@ import { LoadingContext } from "./context/loadingContext";
 // import movies from "./manualData";
 import { englishmovies } from "./englishmovies";
 import { delay, motion, spring } from "framer-motion";
+import { NavContext } from "./context/navContext";
 
 
 
 const Movies = () => {
+
+  const {setThh}=useContext(NavContext)
+
+  useEffect(()=>{
+    setThh(null)
+  },[])
   // const { Data: movies, loading } = useFetch(
   //   import.meta.env.VITE_API_URL + "movies"
   // );
@@ -56,6 +63,8 @@ const Movies = () => {
               <div className="my-1 mx-2 md:m-2 text-[#9ca3af] text-xs md:text-sm">{movie.year}</div>
               {/* <div>{movie?.id}</div> */}
 
+
+        
 
             </Link>
           </motion.div >

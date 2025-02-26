@@ -19,7 +19,10 @@ const Login = () => {
     await login(username, password);
     setServerMsg(message);
     console.log(message);
+
   };
+
+  setThh(1)
 
   return (
     <div className="formdiv">

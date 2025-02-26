@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { commentsContext } from "../context/commentscontext";
+import { NavContext } from "../context/navContext";
 
 const Reply = ({ movie, comment }) => {
   const navigate = useNavigate();
@@ -12,6 +13,7 @@ const Reply = ({ movie, comment }) => {
   const [movieid, setMovieid] = useState(movie.id);
   const [year, setYear] = useState("");
   const [loading, setLoading] = useState(false);
+  const { setThh } = useContext(NavContext)
   // const [cc, setcc] = useState(null);
 
   const { user } = useContext(AuthContext);
@@ -43,6 +45,7 @@ const Reply = ({ movie, comment }) => {
     }
     else {
       navigate("/signup")
+      setThh(2)
     }
   }
 

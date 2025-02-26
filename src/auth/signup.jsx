@@ -18,6 +18,7 @@ const Signup = () => {
 
     await signup(username, password);
   };
+  setThh(2)
 
   return (
     <div className="formdiv  ">
