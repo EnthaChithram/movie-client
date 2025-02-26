@@ -30,7 +30,7 @@ const Commentsection = ({ movie, loading }) => {
   //     dispatch({ type: "reply_on" });
   //   }
   // };
-  { console.log(HiddenReplies) }
+ 
 
   const handleDelete = async (id, childrenlength) => {
     if (childrenlength === 0) {
@@ -146,10 +146,10 @@ const Commentsection = ({ movie, loading }) => {
         {/* children loop*/}
         {/* {console.log(comment.parentid)} */}
         {comment.children && comment.children.length > 0 && (
-          <motion.div className={`${HiddenReplies.includes(comment._id) ? "h-0" : "null"} `}
-            initial={{ y: HiddenReplies.includes(comment._id) ? "-90px" : 0, height: HiddenReplies.includes(comment._id) ? "0" : "auto", opacity: HiddenReplies.includes(comment._id) ? 0 : 1, pointerEvents: HiddenReplies.includes(comment._id) ? "none" : "auto" }}
-            animate={{ y: HiddenReplies.includes(comment._id) ? "-90px" : 0, height: HiddenReplies.includes(comment._id) ? "0" : "auto", opacity: HiddenReplies.includes(comment._id) ? 0 : 1, pointerEvents: HiddenReplies.includes(comment._id) ? "none" : "auto" }}
-            transition={{ duration: 0.2, height: { duration: 0.4 }, opacity: { duration: 0.2 } }}>
+          <motion.div className={`${HiddenReplies.includes(comment._id) ? "h-0" : "null"}  `}
+            initial={{  y: HiddenReplies.includes(comment._id) || HiddenReplies.includes(comment.parentid) ? "-90px" : 0, height: HiddenReplies.includes(comment._id) ? "0" : "auto", opacity: HiddenReplies.includes(comment._id) ? 0 : 1, pointerEvents: HiddenReplies.includes(comment._id) ? "none" : "auto" }}
+            animate={{  y: HiddenReplies.includes(comment._id) || HiddenReplies.includes(comment.parentid) ? "-90px" : 0, height: HiddenReplies.includes(comment._id) ? "0" : "auto", opacity: HiddenReplies.includes(comment._id) ? 0 : 1, pointerEvents: HiddenReplies.includes(comment._id) ? "none" : "auto" }}
+            transition={{ duration: 0.4, height: { duration: 0.4 }, opacity: { duration: 0.2 } }}>
 
             {renderComments(comment.children)}
           </motion.div>

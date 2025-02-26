@@ -99,7 +99,7 @@ function App() {
           ></Route>
           <Route path="/users" element={<Users />}></Route>
           <Route path="/mycomments" element={<MyComments />}></Route>
-          <Route path="/extra" element={<ContinuousTabs prop1={"someValue"} condition={true && "something"}></ContinuousTabs>}></Route>
+          <Route path="/extra" element={<ContinuousTabs></ContinuousTabs>}></Route>
         </Routes>
 
       </Router>
