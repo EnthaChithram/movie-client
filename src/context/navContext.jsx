@@ -4,7 +4,7 @@ export const NavContext = createContext([]);
 
 export const Navcontextprovider = ({ children }) => {
     const [thh, setThh] = useState(null)
-    console.log("thh:", thh)
+
 
 
 
