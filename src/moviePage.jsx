@@ -9,19 +9,24 @@ import movies from "./manualData";
 import { englishmovies } from "./englishmovies";
 import { NavContext } from "./context/navContext";
 import { useContext } from "react";
+import { AuthContext } from "./context/AuthContext";
 const Moviepage = () => {
   const { id } = useParams();
+  const { user } = useContext(AuthContext)
   const movie = englishmovies.find((m) => m.id === id) || { name: "movie not found" }
   const location = useLocation();
-  const {setThh}=useContext(NavContext)
+  const { setThh } = useContext(NavContext)
   // const [movie, setMovie] = useState(null);
   // const [comments, setComments] = useState(null)
 
   const { comments, dispatch } = useCommentsContext();
 
-  const { Data, loading } = useFetch(
-    import.meta.env.VITE_API_URL + "movies/" + id
-  );
+
+
+
+  const { Data, loading } = useFetch(import.meta.env.VITE_API_URL + "movies/" + id)
+
+
 
 
 

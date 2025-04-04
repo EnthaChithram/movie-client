@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 const useFetch = (url) => {
   const [loading, SetLoading] = useState(true);
@@ -6,12 +7,20 @@ const useFetch = (url) => {
 
   const [Data, SetData] = useState([]);
 
+  const { user } = useContext(AuthContext)
+
   useEffect(() => {
     if (!url) {
       return;
     }
     setTimeout(() => {
-      fetch(url)
+      fetch(url, user ? {
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+          "authorization": `Bearer ` + user.token
+        }
+      } : null)
         .then((res) => {
           if (!res.ok) {
             // error coming back from server

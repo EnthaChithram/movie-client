@@ -64,7 +64,7 @@ const Navbar = () => {
 
         {user && <motion.div className="relative flex items-center text-center navtext ml-auto">
           <h1 className="navtext ml-auto px-3" >{user.username} </h1>
-          <button onClick={() => { setMenu(!menu) }}>
+          <button onClick={() => { setMenu(!menu) }} >
             <AccountCircleIcon style={{ fontSize: 40, color: "#ea580c" }} />
             <KeyboardArrowDown style={{ fontSize: 35, color: "#ea580c" }} />
 

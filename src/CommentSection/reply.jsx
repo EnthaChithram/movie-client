@@ -53,6 +53,7 @@ const Reply = ({ movie, comment }) => {
 
   const handleReply = (id) => {
 
+
     if (cc === id) {
       dispatch({ type: isReplying ? "reply_off" : "reply_on" });
       dispatch({ type: "updatecc", payload: null })
@@ -64,12 +65,57 @@ const Reply = ({ movie, comment }) => {
   };
 
   const qq = isReplying ? "5s" : "5s"
+  const [likes, setLikes] = useState(comment.likes)
+  const [liked, setLiked] = useState(comment.liked)
+
+
+
+
+  const handleLike = async () => {
+    if (!user) {
+      navigate("/signup")
+      return
+    }
+
+    const temp = liked
+    { !liked ? setLikes(likes + 1) : setLikes(likes - 1); setLiked(prev => !prev) }
+    console.log(liked)
+
+    if (!temp) {
+
+
+      fetch(import.meta.env.VITE_API_URL + "like", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          "authorization": `Bearer ` + user.token
+        },
+        body: JSON.stringify({ userid: user.userid, commentid: comment._id })
+      })
+    }
+    else {
+      fetch(import.meta.env.VITE_API_URL + "like/" + comment._id, {
+        method: "DELETE",
+        headers: {
+          "content-type": "application/json",
+          "authorization": `Bearer ` + user.token
+        }
+      }).then(console.log(liked, "deleted"))
+
+    }
+
+  }
+
 
 
   return (
     <div className="h-0">
       <div className="flex  z-1 ">
-        <div className="ml-2 z-10">[Likes]{"  "}</div>
+        <div className="ml-2 z-10 cursor-pointer"
+          onClick={handleLike}>
+          ↑{"  "}</div>
+        <div className="ml-2 z-10" >{liked ? "liked" : "not liked"}</div>
+        <div className="ml-2 z-10">{likes}</div>
         {comment.userid && comment.userid._id && (<button className="cursor-pointer ml-2 z-10"
           onClick={() => {
             handleReply(comment._id);
