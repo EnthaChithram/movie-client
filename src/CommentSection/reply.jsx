@@ -78,7 +78,10 @@ const Reply = ({ movie, comment }) => {
     }
 
     const temp = liked
-    { !liked ? setLikes(likes + 1) : setLikes(likes - 1); setLiked(prev => !prev) }
+
+    !liked ? setLikes(likes + 1) : setLikes(likes - 1);
+    setLiked(prev => !prev)
+
     console.log(liked)
 
     if (!temp) {
@@ -113,8 +116,18 @@ const Reply = ({ movie, comment }) => {
       <div className="flex  z-1 ">
         <div className="ml-2 z-10 cursor-pointer"
           onClick={handleLike}>
-          ↑{"  "}</div>
-        <div className="ml-2 z-10" >{liked ? "liked" : "not liked"}</div>
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 -5 24 24"
+            fill={liked ? "#f54900" : "none"}
+            stroke={liked ? "#f54900" : "#666"}
+            strokeWidth="2"
+          >
+            <path d="M12 21V3M5 10l7-7 7 7" />
+          </svg>
+        </div>
+        {/* <div className="ml-2 z-10" >{liked ? "liked" : "not liked"}</div> */}
         <div className="ml-2 z-10">{likes}</div>
         {comment.userid && comment.userid._id && (<button className="cursor-pointer ml-2 z-10"
           onClick={() => {

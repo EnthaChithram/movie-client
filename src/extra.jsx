@@ -9,6 +9,7 @@ const tabs = [
 
 const ContinuousTabs = () => {
   const [activeTab, setActiveTab] = useState(tabs[0].id);
+  const [upvoted, setUpvoted] = useState(false);
 
   return (
     <div className="w-full max-w-md mx-auto mt-10">
@@ -45,8 +46,8 @@ const ContinuousTabs = () => {
                   // initial={{ opacity: 0, y: 40 }}
                   // animate={{ opacity: 1, y: 0 }}
                   // exit={{ opacity: 0, y: -40 }}
-                  transition={{ duration: 1 }}
-                  className="text-gray-800"
+                  transition={{ type: spring, bounce: 0.2, duration: 0.5 }}
+                  className="text-red-800"
                 >
                   {tab.content}
                 </motion.div>
@@ -54,7 +55,41 @@ const ContinuousTabs = () => {
           )}
         </AnimatePresence>
       </div>
+
+
+
+      <button onClick={() => setUpvoted(!upvoted)}>
+        {upvoted ? (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            width="32"
+            height="32"
+            fill="#FF4500" // Reddit Orange
+          >
+            <path d="M12 2l7 9h-4v9h-6v-9H5l7-9z"></path>
+          </svg>
+        ) : (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            width="32"
+            height="32"
+            fill="none"
+            stroke="gray"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M12 2l7 9h-4v9h-6v-9H5l7-9z"></path>
+          </svg>
+        )}
+      </button>
+
+
     </div>
+
+
   );
 }
 export default ContinuousTabs;
