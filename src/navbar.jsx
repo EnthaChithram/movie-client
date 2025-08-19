@@ -62,9 +62,10 @@ const Navbar = () => {
         )}
 
 
-        {user && <motion.div className="relative flex items-center text-center navtext ml-auto">
+        {user && <motion.div className="relative flex items-center text-center navtext ml-auto"
+          onMouseEnter={() => { setMenu(true) }} onMouseLeave={() => { setMenu(false) }} >
           <h1 className="navtext ml-auto px-3" >{user.username} </h1>
-          <button onClick={() => { setMenu(!menu) }} >
+          <button >
             <AccountCircleIcon style={{ fontSize: 40, color: "#ea580c" }} />
             <KeyboardArrowDown style={{ fontSize: 35, color: "#ea580c" }} />
 
@@ -76,7 +77,7 @@ const Navbar = () => {
               animate={{ opacity: 1, y: 0 }}
 
               transition={{ duration: 0.3 }}
-              className="absolute z-100 top-12 w-auto left-20  bg-black text-black rounded-md px-2 py-1.5">
+              className="absolute z-100 top-full w-auto left-20  bg-black text-black rounded-md px-2 py-1.5">
               <h1>
                 <Link className="navtext whitespace-nowrap " to="/mycomments">
                   My comments
