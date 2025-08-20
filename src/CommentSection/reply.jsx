@@ -116,11 +116,11 @@ const Reply = ({ movie, comment }) => {
       <div className="flex  z-1 ">
         <div className="ml-2 z-10 cursor-pointer"
           onClick={handleLike}>
-          <svg
+          <svg className="transition duration-450"
             width="20"
             height="20"
             viewBox="0 -5 24 24"
-            fill={liked ? "#f54900" : "none"}
+            fill={liked ? "none" : "none"}
             stroke={liked ? "#f54900" : "#666"}
             strokeWidth="2"
           >
@@ -128,7 +128,7 @@ const Reply = ({ movie, comment }) => {
           </svg>
         </div>
         {/* <div className="ml-2 z-10" >{liked ? "liked" : "not liked"}</div> */}
-        <div className="ml-2 z-10">{likes}</div>
+        <div className="ml-2 z-10 transition ">{likes}</div>
         {comment.userid && comment.userid._id && (<button className="cursor-pointer ml-2 z-10"
           onClick={() => {
             handleReply(comment._id);

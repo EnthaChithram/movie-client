@@ -85,6 +85,7 @@ const Navbar = () => {
               </h1>
               <h1 className="underline self-end "
                 onClick={() => {
+                  setMenu(false)
                   logout();
                 }}
               >
