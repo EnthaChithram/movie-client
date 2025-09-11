@@ -41,7 +41,7 @@ function App() {
   if (error) {
 
     return (
-      <h1 className="text-red-600 text-2xl lg:text-7xl">{error}</h1>
+      <h1 className=" text-red-600 text-2xl lg:text-7xl">{error}, try refreshing</h1>
     )
   }
 
