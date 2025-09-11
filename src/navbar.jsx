@@ -84,6 +84,7 @@ const Navbar = () => {
                 <h1 className="underline self-end "
                   onClick={() => {
                     logout();
+                    setMenu(false)
                   }}
                 >
                   <Link className="navtext " to="/"> Logout </Link>

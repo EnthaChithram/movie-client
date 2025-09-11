@@ -8,22 +8,17 @@
 @import "tailwindcss";
 
 html {
-  background-image: repeating-linear-gradient(
-      90deg,
+  background-image: repeating-linear-gradient(90deg,
       rgba(255, 255, 255, 0.007) 0px,
       rgba(255, 255, 255, 0.007) 1px,
       transparent 1px,
-      transparent 20px
-    ),
-    repeating-linear-gradient(
-      0deg,
+      transparent 20px),
+    repeating-linear-gradient(0deg,
       rgba(255, 255, 255, 0.007) 0px,
       rgba(255, 255, 255, 0.007) 1px,
       transparent 1px,
-      transparent 20px
-    ),
-    linear-gradient(
-      135deg,
+      transparent 20px),
+    linear-gradient(135deg,
       #000000 0%,
       #111c35 15%,
       #050913 25%,
@@ -31,8 +26,7 @@ html {
       #111c35 75%,
       #0c1526 85%,
       #000000 95%,
-      #000000 100%
-    );
+      #000000 100%);
 
   background-attachment: fixed;
 
@@ -113,12 +107,12 @@ html {
 }
 
 .authform {
-  @apply bg-[#1d232a] w-[350px]  p-5 text-[#95a5b6] rounded-xl flex flex-col;
+  @apply bg-[#1d232a] w-[350px] p-5 text-[#95a5b6] rounded-xl flex flex-col;
   background: linear-gradient(135deg, #0f172a 0%, #1a2436 50%, #0f172a 100%);
 }
 
 .authinput {
-  @apply p-0.5 text-white bg-[#1e293b]  transition-all duration-300 block rounded-sm focus:outline-none focus:bg-[#0f172a] focus:caret-white mt-2 mb-6;
+  @apply p-0.5 px-2 text-white bg-[#1e293b] transition-all duration-300 block rounded-sm focus:outline-none focus:bg-[#0f172a] focus:caret-white mt-2 mb-6;
 }
 
 .navtext {
@@ -198,8 +192,7 @@ html {
 }
 
 @keyframes up {
-  0% {
-  }
+  0% {}
 
   100% {
     /* transform: translateX(300px); */
@@ -216,10 +209,8 @@ html {
 
   /* Option 3: Start transition earlier (more gradual) */
 
-  background-image: linear-gradient(
-    155deg,
-    #111c35 45%,
-    #050913 75%,
-    #111c35 100%
-  );
+  background-image: linear-gradient(155deg,
+      #111c35 45%,
+      #050913 75%,
+      #111c35 100%);
 }
