@@ -56,28 +56,24 @@ const Commentsection = ({ movie, loading }) => {
     if (comments.length === 0) {
       return (<p>  </p>)
     }
+
     return comments.map((comment) => (
       <motion.div
 
 
-
-
-        className={` ${comment.parentid === null ? "md:ml-[10px]" : "ml-[20px] md:ml-[40px]"} mt-[3px] md:mt-[5px] ${comment.parentid === null ? "mt-[15px] md:mt-[30px]" : null} `}
+        className={` ${comment.parentid === null ? "md:ml-[10px]" : "ml-[20px] md:ml-[40px]"} mt-[3px]  md:mt-[5px] ${comment.parentid === null ? "mt-[15px] md:mt-[30px]" : null} `}
         key={comment._id}
-        style={{
 
-
-        }}
       >
 
-        <motion.div className=" flex w-full items-center " style={{
+        <motion.div className=" flex   w-full items-center " style={{
           marginBottom: "10px",
         }}
           initial={{ y: "40px", opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ y: { duration: 0.4 }, opacity: { duration: 0.4 } }}
         >
-          <strong className={`${comment.userid ? null : "text-gray-400"}  transition-all duration-1000 shadow-[0_2px_10px_rgba(0,0,0,0.8),0_-0.5px_10px_rgba(0,0,0,0.8)] rounded-3xl pl-3 pr-3 pb-0.5`}>
+          <strong className={`${comment.userid ? null : "text-gray-400"}  transition-all  duration-1000 shadow-[0_2px_10px_rgba(0,0,0,0.8),0_-0.5px_10px_rgba(0,0,0,0.8)] rounded-3xl pl-3 pr-3 pb-0.5`}>
             @{comment.userid ? comment.userid?.username : "[deleted]"}
           </strong>{" "}
           <i className=" pl-1 pr-1" style={{ fontSize: "12px" }}>
@@ -104,7 +100,7 @@ const Commentsection = ({ movie, loading }) => {
           animate={{ scale: 1 }}
           transition={{ duration: 0.2 }}
           className={` z-300 relative ${comment.userid ? null : "text-gray-400"
-            } text-left shadow-[0_5px_20px_rgba(0,0,0,0.8),0_-0.5px_20px_rgba(0,0,0,0.8)] rounded-md pl-4 pt-2 pb-2 `}
+            } text-left shadow-[0_5px_20px_rgba(0,0,0,0.8),0_-0.5px_20px_rgba(0,0,0,0.8)] rounded-md pl-4 pt-2 pb-2 w-[98%] `}
           style={{
             background: comment.parentid === null
               ? "linear-gradient(155deg, #111c35 45%,#050913  75%,#111c35  100%)"
@@ -115,12 +111,12 @@ const Commentsection = ({ movie, loading }) => {
           }}
         >
           {comment.text}
-          {comment.children && comment.children.length > 0 && <div className="flex flex-col justify-center  absolute  top-0 bottom-0 -left-7 "  ><button className="cursor-pointer z-1 border-1 rounded-full border-white w-4.5 h-4.5 flex items-center justify-center  "
+          {comment.children && comment.children.length > 0 && <div className="flex flex-col justify-center  absolute  top-0 bottom-0 -left-7 "  ><button className="cursor-pointer z-1  rounded-full border-white py-4 px-3 flex flex-col text-center items-center justify-center  "
             onClick={() => {
               HiddenReplies.includes(comment._id) ? setHiddenReplies(prev => prev.filter(id => id !== comment._id)) : setHiddenReplies(prev => [...prev, comment._id])
 
             }}
-          > <span className="translate-y-[-2px]">{HiddenReplies.includes(comment._id) ? "+" : "-"}</span></button></div>}
+          > <span className="-translate-y-1">{HiddenReplies.includes(comment._id) ? "+" : "-"}</span></button></div>}
         </motion.div>
 
         {/* reply component */}
@@ -147,7 +143,7 @@ const Commentsection = ({ movie, loading }) => {
         {/* children loop*/}
         {/* {console.log(comment.parentid)} */}
         {comment.children && comment.children.length > 0 && (
-          <motion.div className={` `}
+          <motion.div className={` overflow-hidden `}
             initial={{ scaleX: HiddenReplies.includes(comment._id) ? 0.9 : 1, y: HiddenReplies.includes(comment._id) ? "10px" : 0, height: HiddenReplies.includes(comment._id) ? "0" : "auto", opacity: HiddenReplies.includes(comment._id) ? 0 : 1, pointerEvents: HiddenReplies.includes(comment._id) ? "none" : "auto" }}
             animate={{ scaleX: HiddenReplies.includes(comment._id) ? 0.9 : 1, y: HiddenReplies.includes(comment._id) ? "10px" : 0, height: HiddenReplies.includes(comment._id) ? "0" : "auto", opacity: HiddenReplies.includes(comment._id) ? 0 : 1, pointerEvents: HiddenReplies.includes(comment._id) ? "none" : "auto" }}
             transition={{ duration: 0.4, height: { duration: 0.4 }, opacity: { duration: 0.4 } }}>
@@ -160,7 +156,7 @@ const Commentsection = ({ movie, loading }) => {
   };
 
   return (
-    <div className="text-[10px]  md:text-[16px] md:max-w-[750px]"
+    <div className="text-[10px] sm:w-[90%] md:w-[60%]  md:text-[16px] "
       style={{
 
         margin: "auto",
@@ -170,7 +166,7 @@ const Commentsection = ({ movie, loading }) => {
 
       }}
     >
-      <div>-----</div>
+
       <br></br>
 
       <Newcomment movie={movie} />

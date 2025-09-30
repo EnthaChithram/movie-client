@@ -112,7 +112,7 @@ const Reply = ({ movie, comment }) => {
 
 
   return (
-    <div className="h-0">
+    <div className="h-0 z-10000000 mt-2">
       <div className="flex  z-1 ">
         <div className="ml-2 z-10 cursor-pointer"
           onClick={handleLike}>
@@ -129,7 +129,7 @@ const Reply = ({ movie, comment }) => {
         </div>
         {/* <div className="ml-2 z-10" >{liked ? "liked" : "not liked"}</div> */}
         <div className="ml-2 z-10">{likes}</div>
-        {comment.userid && comment.userid._id && (<button className="cursor-pointer ml-2 z-10"
+        {comment.userid && comment.userid._id && (<button className="cursor-pointer ml-7 z-10"
           onClick={() => {
             handleReply(comment._id);
           }}

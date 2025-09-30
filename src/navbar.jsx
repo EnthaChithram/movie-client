@@ -32,7 +32,7 @@ const Navbar = () => {
 
 
         {!user && (
-          <div className=" ml-auto flex shadow-black shadow-sm  py-1 space-x-4 rounded-4xl ">
+          <div className=" ml-auto flex shadow-black shadow-sm  py-1 px-1 space-x-4 rounded-4xl ">
 
             <Link onClick={() => { setThh(1) }} className={`relative px-3 ${thh === 1 ? "text-black font-bold" : "navtext"} transition-all duration-350 `} to="/login">
               LOGIN

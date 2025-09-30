@@ -33,6 +33,7 @@ const english = [
   { id: "tt0407887" }, // The Departed (2006)
   { id: "tt0482571" }, // The Prestige (2006)
   { id: "tt15398776" }, // Oppenheimer (2023)
+  { id: "tt1022603" }, // 500 days (2023)
 ];
 
 const API_KEY = "23c91a2c"; // Replace with your OMDb API key
@@ -41,7 +42,9 @@ const API_URL = "http://www.omdbapi.com/?i=";
 const fetchMovies = async () => {
   const updatedMovies = await Promise.all(
     english.map(async (movie) => {
-      const res = await fetch(`${API_URL}${movie.id}&apikey=${API_KEY}`);
+      const res = await fetch(
+        `${API_URL}${movie.id}&apikey=${API_KEY}&plot=short`
+      );
       const data = await res.json();
 
       return {
@@ -49,6 +52,9 @@ const fetchMovies = async () => {
         name: data.Title,
         year: data.Year,
         poster: data.Poster,
+        plot: data.Plot, // short description
+        director: data.Director,
+        cast: data.Actors,
       };
     })
   );
