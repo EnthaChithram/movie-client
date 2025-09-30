@@ -1,3 +1,4 @@
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import React, { useContext } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
