@@ -1,4 +1,4 @@
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/react"
 import React, { useContext } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
@@ -49,6 +49,7 @@ function App() {
   if (serverloading) {
     return (
       <>
+        <SpeedInsights />
         <motion.div
           initial={{ y: "100vh" }}
 
