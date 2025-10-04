@@ -10,7 +10,7 @@ import {
   Navigate,
 } from "react-router-dom";
 
-import Navbar from "./navbar";
+import Navbar from "./components/navbar";
 
 import Movies from "./movies";
 import Moviepage from "./moviePage";
@@ -30,6 +30,7 @@ import { Spacer } from "./spacer";
 import ContinuousTabs from "./extra";
 import { motion } from "framer-motion";
 import { Navcontextprovider } from "./context/navContext";
+import Search from "./components/search";
 
 function App() {
   const { user, loading } = useContext(AuthContext);
@@ -75,6 +76,7 @@ function App() {
     <div>
       <Router>
         <Navbar />
+
         <Navcontextprovider>
 
         </Navcontextprovider>
@@ -84,6 +86,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Movies />}></Route>
+          <Route path="/search" element={<Search />}></Route>
 
           <Route path="/movies" element={<Movies />}></Route>
           <Route path="/movies/:id" element={<Moviepage />}></Route>

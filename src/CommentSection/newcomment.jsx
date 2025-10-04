@@ -7,15 +7,15 @@ import { NavContext } from "../context/navContext";
 const Newcomment = ({ movie }) => {
   const { dispatch } = useCommentsContext();
   const { user } = useContext(AuthContext);
-  const {setThh}=useContext(NavContext)
-  
+  const { setThh } = useContext(NavContext)
+
 
   const navigate = useNavigate();
 
   const [name, setName] = useState("");
   const [text, setText] = useState("");
   const [parentid, setParentid] = useState("");
-  const [movieid, setMovieid] = useState(movie.id);
+  const [movieid, setMovieid] = useState(movie.imdb_id);
   const [year, setYear] = useState("");
   const [loading, setLoading] = useState(false);
 

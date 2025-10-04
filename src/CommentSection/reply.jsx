@@ -10,7 +10,7 @@ const Reply = ({ movie, comment }) => {
   const [name, setName] = useState("");
   const [text, setText] = useState("");
   const [parentid, setParentid] = useState(comment._id);
-  const [movieid, setMovieid] = useState(movie.id);
+  const [movieid, setMovieid] = useState(movie.imdb_id);
   const [year, setYear] = useState("");
   const [loading, setLoading] = useState(false);
   const { setThh } = useContext(NavContext)
