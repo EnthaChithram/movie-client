@@ -65,8 +65,9 @@ const Search = (() => {
 
                     // Get IMDB IDs for each movie (with CORS proxy)
                     const moviesWithImdb = await Promise.all(
-                        data.results.slice(0, 10).map(async (movie) => {
+                        data.results.slice(0, 5).map(async (movie) => {
                             try {
+                                setLoading(true)
                                 const detailTargetUrl = `https://api.themoviedb.org/3/movie/${movie.id}?api_key=8fc91a34b6eba62b31098c5188e8af96`;
                                 const detailRes = await fetch(
                                     `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(detailTargetUrl)}`
@@ -135,7 +136,7 @@ const Search = (() => {
                     <div className="w-5">{loading ? <span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-solid  transform translate-y-0.5 border-t-transparent border-orange-600"></span> : null}</div>
                 </form>
 
-                <motion.div className={`absolute mt-2 top-[100%] flex flex-col w-[95%] bg-[#1a2436] shadow-2xl py-2 rounded-2xl max-h-130 overflow-hidden overflow-y-scroll z-[1000000]
+                <motion.div className={`absolute mt-2 top-[100%] flex flex-col w-[95%] bg-[#1a2436] shadow-2xl pt-2  rounded-2xl max-h-130 overflow-hidden overflow-y-scroll z-[1000000]
                 ${show ? `${!query ? "opacity-0 pointer-events-none" : "opacity-100 pointer-events-auto"}` : "opacity-0 pointer-events-none"}  transition-all duration-400`}
                     ref={resultRef}
 
