@@ -34,7 +34,7 @@ const Navbar = () => {
         </h1>
 
 
-        <div className="flex justify-center items-center ">
+        <div className="flex justify-center w-120 items-center ">
           <Search />
         </div>
 

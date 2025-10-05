@@ -15,7 +15,7 @@ const Newcomment = ({ movie }) => {
   const [name, setName] = useState("");
   const [text, setText] = useState("");
   const [parentid, setParentid] = useState("");
-  const [movieid, setMovieid] = useState(movie.imdb_id);
+  const [movieid, setMovieid] = useState(movie.imdbID);
   const [year, setYear] = useState("");
   const [loading, setLoading] = useState(false);
 

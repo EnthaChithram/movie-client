@@ -6,7 +6,7 @@ const Search = (() => {
     const TMDB = "8fc91a34b6eba62b31098c5188e8af96"
 
     const API_KEY = "23c91a2c"; // Replace with your OMDb API key
-    const API_URL = `http://www.omdbapi.com/?apikey=${API_KEY}`;
+    const API_URL = `https://www.omdbapi.com/?apikey=${API_KEY}`;
 
     const [query, setQuery] = useState("")
     const [results, setResults] = useState("")
@@ -95,7 +95,7 @@ const Search = (() => {
                 }
             };
             tmdb();
-        }, 300);
+        }, 500);
 
         return () => clearTimeout(timer);
     }, [query]);
@@ -117,53 +117,58 @@ const Search = (() => {
 
         <div className=" text-white w-full flex flex-col items-center  justify-center ">
 
-            <motion.div className="relative w-[100%] flex flex-col px-2 rounded-2xl  justify-center"
+            <motion.div className="relative w-[100%] flex flex-col  rounded-2xl  justify-center"
                 onClick={() => setShow(true)}
 
 
                 transition={{ duration: 0.5 }}>
 
-                <form className="w-full px-5 rounded-3xl border-1 py-1 border-orange-500 flex justify-between"
-                    onSubmit={handleSubmit}>
+                <form className="relative w-full  rounded-4xl border-1 py-1  border-orange-500 flex justify-between "
+                    onSubmit={(e) => e.preventDefault()}>
 
-                    <input className="w-full px-5 outline-0  text flex items-center placeholder:italic"
+                    <input className="w-full ml-3 outline-0   flex items-center placeholder:italic"
                         required
                         type="text"
                         value={query}
-                        placeholder="Find a movie..."
+                        placeholder="Find your favourites..."
                         onChange={(e) => setQuery(e.target.value)}
+
+
                     />
-                    <div className="w-5">{loading ? <span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-solid  transform translate-y-0.5 border-t-transparent border-orange-600"></span> : null}</div>
-                </form>
+                    <div className="w-5 mr-3">{loading ? <span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-solid  transform translate-y-0.5 border-t-transparent border-orange-600"></span> : null}</div>
 
-                <motion.div className={`absolute mt-2 top-[100%] flex flex-col w-[95%] bg-[#1a2436] shadow-2xl pt-2  rounded-2xl max-h-130 overflow-hidden overflow-y-scroll z-[1000000]
-                ${show ? `${!query ? "opacity-0 pointer-events-none" : "opacity-100 pointer-events-auto"}` : "opacity-0 pointer-events-none"}  transition-all duration-400`}
-                    ref={resultRef}
-
-
-
-                >
+                    <motion.div className={` absolute mt-2 top-[100%] flex flex-col w-[100%] bg-[#1a2436] shadow-2xl pt-2  rounded-2xl max-h-130 overflow-hidden overflow-y-scroll z-[1000000]
+                ${show ? !query ? "opacity-0 pointer-events-none" : results.length === 0 ? "opacity-0 pointer-events-none" : "" : "opacity-0 pointer-events-none"}  transition-all duration-400`}
+                        ref={resultRef}
 
 
 
-                    {results && results.map((m, index) => (
-                        <a href={`/movies/${m.imdb_id}`}><div className="px-2 border-b border-b-gray-600 py-2" key={m.index}>
-                            <div className="flex items-centre space-x-3">
-                                <img className="h-[70px] w-[47px] rounded-md shadow-black shadow-xs  " src={`https://image.tmdb.org/t/p/w500${m.poster_path}`} />
-                                <div className="flex flex-col space-y-1.5 items-start  text-sm">
-                                    <h1 className="truncate ">{m.title}</h1>
-                                    <h1 className="truncate">{m.release_date?.split("-")[0]}</h1>
+                    >
+
+
+
+                        {results && results.map((m, index) => (
+                            <a href={`/movies/${m.imdb_id}`}><div className="px-2 border-b border-b-gray-600 py-2" key={m.index}>
+                                <div className="flex items-centre space-x-3">
+                                    <img className="h-[70px] w-[47px] rounded-md shadow-black shadow-xs  " src={`https://image.tmdb.org/t/p/w500${m.poster_path}`} />
+                                    <div className="flex flex-col space-y-1.5 items-start  text-sm">
+                                        <h1 className="truncate ">{m.title}</h1>
+                                        <h1 className="truncate">{m.release_date?.split("-")[0]}</h1>
+
+                                    </div>
 
                                 </div>
-
-                            </div>
-                            {/* <h1>{m.id},{m.imdbID}</h1>
+                                {/* <h1>{m.id},{m.imdbID}</h1>
 
 
                             <h1></h1> */}
-                        </div></a>
-                    ))}
-                </motion.div>
+                            </div></a>
+                        ))}
+                    </motion.div>
+
+                </form>
+
+
             </motion.div>
 
 

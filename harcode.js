@@ -25,15 +25,21 @@ const movies = [
 ];
 
 const english = [
-  { id: "tt0468569" }, // The Dark Knight (2008)
-  { id: "tt0110912" }, // Pulp Fiction (1994)
-  { id: "tt0137523" }, // Fight Club (1999)
-  { id: "tt1375666" }, // Inception (2010)
-  { id: "tt0816692" }, // Interstellar (2014)
+  {id:  "tt11280740" }, // severance
   { id: "tt0407887" }, // The Departed (2006)
   { id: "tt0482571" }, // The Prestige (2006)
-  { id: "tt15398776" }, // Oppenheimer (2023)
+ 
   { id: "tt1022603" }, // 500 days (2023)
+ { id: "tt0110912" }, // Pulp Fiction (1994)
+  { id: "tt0137523" }, // Fight Club (1999)
+  { id: "tt0468569" }, // The Dark Knight (2008)
+  { id: "tt0816692" }, // Interstellar (2014)
+  
+  
+
+  { id: "tt1853728" }, // Django
+  
+  
 ];
 
 const API_KEY = "23c91a2c"; // Replace with your OMDb API key

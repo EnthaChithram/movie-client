@@ -6,16 +6,17 @@ import { LoadingContext } from "./context/loadingContext";
 import { englishmovies } from "./englishmovies";
 import { delay, motion, spring } from "framer-motion";
 import { NavContext } from "./context/navContext";
+import Search from "./components/search";
 
 
 
 const Movies = () => {
 
-  const {setThh}=useContext(NavContext)
+  const { setThh } = useContext(NavContext)
 
-  useEffect(()=>{
+  useEffect(() => {
     setThh(null)
-  },[])
+  }, [])
   // const { Data: movies, loading } = useFetch(
   //   import.meta.env.VITE_API_URL + "movies"
   // );
@@ -49,8 +50,13 @@ const Movies = () => {
       initial={{ y: 90 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.7, type: spring, bounce: 0.3 }}
-      className=" movies flex-col flex">
+      className=" movies flex-col flex items-center">
       {/* <h2 className="text-red-500 text-center ">2024</h2> */}
+
+      {/* <div className="w-[75%] mt-50 mb-60 ">
+        <Search />
+      </div> */}
+
       <div className="mx-auto grid items-start mt-10 mb-20 grid-cols-2 gap-x1 md:grid-cols-4 gap-x-12 gap-y-20  ">
         {movies && movies.map((movie) => (
           <motion.div
@@ -64,7 +70,7 @@ const Movies = () => {
               {/* <div>{movie?.id}</div> */}
 
 
-        
+
 
             </Link>
           </motion.div >
