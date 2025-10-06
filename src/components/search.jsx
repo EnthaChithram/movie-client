@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 
 const Search = (() => {
 
-    const TMDB = "8fc91a34b6eba62b31098c5188e8af96"
+    const TMDB = ""
 
-    const API_KEY = "23c91a2c"; // Replace with your OMDb API key
-    const API_URL = `https://www.omdbapi.com/?apikey=${API_KEY}`;
+    const API_KEY = ""; ///omdb
+    const API_URL = `https://www.omdbapi.com/?apikey=${import.meta.env.OMDB_API_KEY}`;
 
     const [query, setQuery] = useState("")
     const [results, setResults] = useState("")
@@ -56,7 +56,7 @@ const Search = (() => {
 
 
                 try {
-                    const targetUrl = `https://api.themoviedb.org/3/search/movie?api_key=8fc91a34b6eba62b31098c5188e8af96&query=${encodeURIComponent(query)}&language=en-US&page=1&include_adult=false`;
+                    const targetUrl = `https://api.themoviedb.org/3/search/movie?api_key=${import.meta.env.TMDB_API_KEY}&query=${encodeURIComponent(query)}&language=en-US&page=1&include_adult=false`;
 
                     const res = await fetch(`https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(targetUrl)}`);
                     const data = await res.json();
@@ -69,14 +69,14 @@ const Search = (() => {
                         data.results.slice(0, 5).map(async (movie) => {
                             try {
                                 setLoading(true)
-                                const detailTargetUrl = `https://api.themoviedb.org/3/movie/${movie.id}?api_key=8fc91a34b6eba62b31098c5188e8af96`;
+                                const detailTargetUrl = `https://api.themoviedb.org/3/movie/${movie.id}?api_key=${import.meta.env.TMDB_API_KEY}`;
                                 const detailRes = await fetch(
                                     `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(detailTargetUrl)}`
                                 );
                                 const detailData = await detailRes.json();
                                 return {
                                     ...movie,
-                                    imdb_id: detailData.imdb_id || null, // Fixed: consistent naming
+                                    imdb_id: detailData.imdb_id || null,
                                 };
                             } catch (error) {
                                 console.log(`Error fetching details for ${movie.title}:`, error);
