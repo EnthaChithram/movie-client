@@ -73,13 +73,13 @@ const Moviepage = () => {
       }
     }
 
-    if (movie === null) {
-      movieDetails()
-    }
+
+    movieDetails()
 
 
 
-  })
+
+  }, [id])
 
 
 

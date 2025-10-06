@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react"
+import { Link } from "react-router-dom";
 
 const Search = (() => {
 
@@ -148,7 +149,7 @@ const Search = (() => {
 
 
                         {results && results.map((m, index) => (
-                            <a href={`/movies/${m.imdb_id}`}><div className="px-2 border-b border-b-gray-600 py-2" key={m.index}>
+                            <Link to={`/movies/${m.imdb_id}`} onClick={() => { setQuery(""); setResults([]) }} > <div className="px-2 border-b border-b-gray-600 py-2" key={m.index}>
                                 <div className="flex items-centre space-x-3">
                                     <img className="h-[70px] w-[47px] rounded-md shadow-black shadow-xs  " src={`https://image.tmdb.org/t/p/w500${m.poster_path}`} />
                                     <div className="flex flex-col space-y-1.5 items-start  text-sm">
@@ -162,7 +163,7 @@ const Search = (() => {
 
 
                             <h1></h1> */}
-                            </div></a>
+                            </div></Link>
                         ))}
                     </motion.div>
 
