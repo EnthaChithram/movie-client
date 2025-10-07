@@ -56,10 +56,12 @@ const Search = (() => {
 
 
                 try {
-                    const targetUrl = `https://api.themoviedb.org/3/search/movie?api_key=${import.meta.env.TMDB_API_KEY}&query=${encodeURIComponent(query)}&language=en-US&page=1&include_adult=false`;
+                    const targetUrl = `https://api.themoviedb.org/3/search/movie?api_key=${import.meta.env.VITE_TMDB_API_KEY}&query=${encodeURIComponent(query)}&language=en-US&page=1&include_adult=false`;
 
                     const res = await fetch(`https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(targetUrl)}`);
                     const data = await res.json();
+
+                    console.log(data)
 
                     // Add full poster URL to each result
 
@@ -69,7 +71,7 @@ const Search = (() => {
                         data.results.slice(0, 5).map(async (movie) => {
                             try {
                                 setLoading(true)
-                                const detailTargetUrl = `https://api.themoviedb.org/3/movie/${movie.id}?api_key=${import.meta.env.TMDB_API_KEY}`;
+                                const detailTargetUrl = `https://api.themoviedb.org/3/movie/${movie.id}?api_key=${import.meta.env.VITE_TMDB_API_KEY}`;
                                 const detailRes = await fetch(
                                     `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(detailTargetUrl)}`
                                 );
