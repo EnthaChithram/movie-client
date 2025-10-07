@@ -14,8 +14,8 @@ import { AuthContext } from "./context/AuthContext";
 
 const Moviepage = () => {
 
-  const API_KEY = "23c91a2c"; // Replace with your OMDb API key
-  const API_URL = `https://www.omdbapi.com/?apikey=${API_KEY}`;
+  const API_KEY = ""; // omdb
+  const API_URL = `https://www.omdbapi.com/?apikey=${import.meta.env.VITE_OMDB_API_KEY}`;
 
 
   const { id } = useParams();
